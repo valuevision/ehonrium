@@ -816,18 +816,27 @@ h2, h3 {
 }
 .plan-table .plan-price {
   font-family: var(--font-serif);
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: var(--brown-text);
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: var(--brown-pale);
 }
 .plan-table .plan-price small {
   font-size: 0.7rem;
   font-weight: 400;
 }
+.plan-table .plan-coupon {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--green-moss);
+  letter-spacing: 0.05em;
+}
 .plan-table .plan-for {
-  font-size: 0.72rem;
-  color: var(--brown-pale);
-  line-height: 1.6;
+  font-size: 0.82rem;
+  color: var(--brown-text);
+  font-weight: 500;
+  line-height: 1.7;
+  background: rgba(139, 158, 107, 0.08);
 }
 .plan-systems-note {
   text-align: center;
@@ -1750,9 +1759,9 @@ h2, h3 {
           </tr>
           <tr>
             <td>毎月のクーポン</td>
-            <td>3枚</td>
-            <td>10枚</td>
-            <td>100枚</td>
+            <td><span class="plan-coupon">3枚</span></td>
+            <td><span class="plan-coupon">10枚</span></td>
+            <td><span class="plan-coupon">100枚</span></td>
           </tr>
           <tr>
             <td>こんな方に</td>
