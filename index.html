@@ -1,0 +1,2419 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>エホンリウム｜わたしを知ることから、わたしの仕事がはじまる。</title>
+<meta name="description" content="価値観カードと絵本づくりで、自分らしい起業の軸を見つける。子育てをしながら、小さく仕事を始めたいママのためのプログラム。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500;600&family=Zen+Maru+Gothic:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+/* ==============================
+   CSS Custom Properties
+   ============================== */
+:root {
+  --bg-cream: #FDF8F0;
+  --bg-warm: #FAF3E8;
+  --green-leaf: #7BAF52;
+  --green-moss: #8B9E6B;
+  --green-mint: #8ECFC0;
+  --blue-sky: #B5D8E8;
+  --yellow-hope: #F0D86E;
+  --coral-warm: #E8A5A0;
+  --lavender: #C4B4D8;
+  --brown-text: #51463F;
+  --brown-light: #7A6E64;
+  --brown-pale: #A89888;
+  --pink-petal: #F2D5D0;
+  --font-serif: 'Noto Serif JP', 'Yu Mincho', '游明朝', serif;
+  --font-round: 'Zen Maru Gothic', 'Rounded Mplus 1c', sans-serif;
+}
+
+/* ==============================
+   Reset & Base
+   ============================== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-round);
+  font-weight: 300;
+  color: var(--brown-text);
+  background-color: var(--bg-cream);
+  line-height: 2;
+  letter-spacing: 0.08em;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul { list-style: none; }
+
+/* ==============================
+   Typography
+   ============================== */
+.serif { font-family: var(--font-serif); }
+
+h2, h3 {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  line-height: 2.2;
+}
+
+/* ==============================
+   Scroll Animation
+   ============================== */
+.fade-in {
+  opacity: 0;
+  transform: translateY(25px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.fade-in-left {
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+.fade-in-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+.fade-in-right {
+  opacity: 0;
+  transform: translateX(30px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+.fade-in-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+.fade-in-slow {
+  opacity: 0;
+  transition: opacity 1.8s ease;
+}
+.fade-in-slow.visible {
+  opacity: 1;
+}
+
+/* Stagger delays */
+.delay-1 { transition-delay: 0.15s; }
+.delay-2 { transition-delay: 0.3s; }
+.delay-3 { transition-delay: 0.45s; }
+.delay-4 { transition-delay: 0.6s; }
+.delay-5 { transition-delay: 0.75s; }
+
+/* ==============================
+   CSS Animations (decorative)
+   ============================== */
+@keyframes sway {
+  0%, 100% { transform: rotate(-2deg); }
+  50% { transform: rotate(2deg); }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+@keyframes drift {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  25% { transform: translate(4px, -6px) rotate(1deg); }
+  75% { transform: translate(-3px, -3px) rotate(-1deg); }
+}
+@keyframes gentleRotate {
+  0%, 100% { transform: rotate(-1deg); }
+  50% { transform: rotate(1deg); }
+}
+@keyframes paperPlane {
+  0%, 100% { transform: translate(0, 0) rotate(-5deg); }
+  30% { transform: translate(6px, -8px) rotate(-3deg); }
+  60% { transform: translate(-2px, -4px) rotate(-7deg); }
+}
+@keyframes leafFall {
+  0% { transform: translate(0, 0) rotate(0deg); opacity: 0.7; }
+  50% { transform: translate(15px, 20px) rotate(15deg); opacity: 1; }
+  100% { transform: translate(30px, 40px) rotate(30deg); opacity: 0.5; }
+}
+@keyframes shimmer {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.7; }
+}
+
+/* ==============================
+   SVG Decorations
+   ============================== */
+.deco-leaf {
+  position: absolute;
+  pointer-events: none;
+  animation: sway 6s ease-in-out infinite;
+}
+.deco-leaf-2 {
+  position: absolute;
+  pointer-events: none;
+  animation: drift 8s ease-in-out infinite;
+}
+.deco-float {
+  animation: float 5s ease-in-out infinite;
+}
+.deco-shimmer {
+  animation: shimmer 4s ease-in-out infinite;
+}
+
+/* ==============================
+   Header
+   ============================== */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background 0.5s ease, padding 0.3s ease;
+  background: rgba(253, 248, 240, 0.6);
+  backdrop-filter: blur(4px);
+}
+.site-header.scrolled {
+  background: rgba(253, 248, 240, 0.92);
+  backdrop-filter: blur(8px);
+  padding: 12px 40px;
+  box-shadow: 0 1px 20px rgba(81, 70, 63, 0.05);
+}
+.site-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  color: var(--brown-text);
+}
+.site-logo-img {
+  height: 32px;
+  width: auto;
+}
+.site-nav {
+  display: flex;
+  gap: 32px;
+}
+.site-nav a {
+  font-family: var(--font-serif);
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  color: var(--brown-light);
+  transition: color 0.3s ease;
+  position: relative;
+}
+.site-nav a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--green-leaf);
+  transition: width 0.3s ease;
+}
+.site-nav a:hover { color: var(--brown-text); }
+.site-nav a:hover::after { width: 100%; }
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 5px;
+}
+.hamburger span {
+  display: block;
+  width: 22px;
+  height: 1.5px;
+  background: var(--brown-text);
+  transition: 0.3s ease;
+}
+
+/* ==============================
+   Hero / First View
+   ============================== */
+.hero {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+.hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 60%;
+}
+
+/* ── Book-open cover animation ── */
+.book-cover {
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  z-index: 20;
+  background: var(--bg-cream);
+  transition: transform 1.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.book-cover-left {
+  left: 0;
+  transform-origin: left center;
+  border-right: 1px solid rgba(81,70,63,0.08);
+}
+.book-cover-right {
+  right: 0;
+  transform-origin: right center;
+  border-left: 1px solid rgba(81,70,63,0.08);
+}
+/* Book spine line */
+.book-cover::after {
+  content: '';
+  position: absolute;
+  top: 5%;
+  bottom: 5%;
+  width: 2px;
+  background: linear-gradient(to bottom, transparent, rgba(81,70,63,0.08), rgba(81,70,63,0.12), rgba(81,70,63,0.08), transparent);
+}
+.book-cover-left::after { right: 12px; }
+.book-cover-right::after { left: 12px; }
+/* Title on the cover */
+.book-cover-title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: var(--font-serif);
+  color: var(--brown-light);
+  text-align: center;
+  white-space: nowrap;
+  transition: opacity 0.6s ease;
+}
+.book-cover-left .book-cover-title {
+  font-size: clamp(0.8rem, 1.4vw, 1.1rem);
+  letter-spacing: 0.3em;
+  writing-mode: vertical-rl;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+.book-cover-logo {
+  width: clamp(36px, 5vw, 56px);
+  height: auto;
+  writing-mode: horizontal-tb;
+}
+.book-cover-right .book-cover-title {
+  font-size: clamp(0.65rem, 1vw, 0.8rem);
+  letter-spacing: 0.15em;
+  color: var(--brown-pale);
+}
+/* Opened state */
+.hero.book-opened .book-cover-left {
+  transform: perspective(1600px) rotateY(-85deg);
+}
+.hero.book-opened .book-cover-right {
+  transform: perspective(1600px) rotateY(85deg);
+}
+.hero.book-opened .book-cover-title {
+  opacity: 0;
+}
+/* After animation: hide covers entirely */
+.hero.book-done .book-cover {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .book-cover { display: none; }
+}
+.hero-content {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 0 6vw;
+}
+.hero-main-copy {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  font-family: var(--font-serif);
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  line-height: 2.2;
+  color: var(--brown-text);
+  position: absolute;
+  top: 12vh;
+  left: 35%;
+  transform: translateX(-50%);
+  text-shadow:
+    0 0 20px rgba(253, 248, 240, 1),
+    0 0 40px rgba(253, 248, 240, 0.8),
+    0 0 60px rgba(253, 248, 240, 0.5);
+}
+.hero-sub-area {
+  position: absolute;
+  bottom: 4vh;
+  left: 6vw;
+  max-width: 440px;
+  background: rgba(253, 248, 240, 0.78);
+  padding: 24px 28px;
+  border-radius: 16px;
+  backdrop-filter: blur(6px);
+}
+.hero-sub-copy {
+  font-family: var(--font-serif);
+  font-size: clamp(0.8rem, 1.1vw, 0.95rem);
+  line-height: 2.2;
+  color: var(--brown-text);
+  margin-bottom: 8px;
+  text-shadow: 0 0 20px rgba(253, 248, 240, 0.9);
+}
+.hero-info {
+  font-size: 0.75rem;
+  color: var(--brown-light);
+  margin-bottom: 24px;
+  letter-spacing: 0.05em;
+}
+.hero-paper-plane {
+  position: absolute;
+  right: 15vw;
+  top: 12vh;
+  width: clamp(50px, 6vw, 80px);
+  animation: paperPlane 6s ease-in-out infinite;
+  z-index: 11;
+  opacity: 0;
+  transition: opacity 1s ease 0.8s;
+}
+/* Hero content hidden until book opens */
+.hero .hero-content,
+.hero .hero-bg img {
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+.hero.book-opened .hero-paper-plane {
+  opacity: 0.85;
+}
+.hero.book-opened .hero-content,
+.hero.book-opened .hero-bg img {
+  opacity: 1;
+  transition: opacity 1.2s ease 0.4s;
+}
+
+/* CTA Buttons */
+.btn-cta {
+  display: inline-block;
+  font-family: var(--font-serif);
+  font-size: 0.82rem;
+  letter-spacing: 0.12em;
+  padding: 12px 32px;
+  border-radius: 50px;
+  transition: all 0.4s ease;
+  position: relative;
+}
+.btn-coral {
+  background: var(--coral-warm);
+  color: #fff;
+  border: none;
+}
+.btn-coral:hover {
+  background: #D4918C;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(232, 165, 160, 0.3);
+}
+.btn-lavender {
+  background: transparent;
+  color: var(--brown-light);
+  border: 1px solid var(--brown-pale);
+}
+.btn-lavender:hover {
+  border-color: var(--lavender);
+  color: var(--brown-text);
+}
+.btn-sm {
+  font-size: 0.75rem;
+  padding: 8px 24px;
+}
+.hero-sub-link {
+  display: block;
+  margin-top: 16px;
+  font-size: 0.72rem;
+  color: var(--brown-pale);
+  letter-spacing: 0.05em;
+}
+.hero-sub-link:hover {
+  color: var(--brown-text);
+}
+
+/* ==============================
+   Section Base
+   ============================== */
+.section {
+  position: relative;
+  padding: 120px 0;
+  overflow: hidden;
+}
+.section-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 6vw;
+  position: relative;
+}
+
+/* ==============================
+   Section Transition SVG Decorations
+   ============================== */
+.section-transition {
+  position: relative;
+  height: 80px;
+  overflow: visible;
+  pointer-events: none;
+}
+
+/* ==============================
+   02: 共感・悩み
+   ============================== */
+.sec-empathy {
+  padding-top: 80px;
+}
+.sec-empathy .section-inner {
+  display: flex;
+  align-items: flex-start;
+  gap: 4vw;
+  flex-direction: row-reverse;
+}
+.sec-empathy .illust-area {
+  flex: 0 0 38%;
+  max-width: 380px;
+  position: relative;
+}
+.sec-empathy .illust-area img {
+  width: 100%;
+  animation: gentleRotate 8s ease-in-out infinite;
+}
+.sec-empathy .text-area {
+  flex: 1;
+  padding-top: 60px;
+  padding-right: 2vw;
+}
+.sec-empathy h2 {
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
+  margin-bottom: 32px;
+  line-height: 2.4;
+}
+.sec-empathy .body-text {
+  font-size: 0.88rem;
+  line-height: 2.2;
+  margin-bottom: 24px;
+}
+.empathy-list {
+  margin: 24px 0 32px 0;
+}
+.empathy-list li {
+  font-size: 0.85rem;
+  line-height: 2.2;
+  padding-left: 1.2em;
+  position: relative;
+  color: var(--brown-light);
+}
+.empathy-list li::before {
+  content: '·';
+  position: absolute;
+  left: 0;
+  color: var(--green-moss);
+  font-size: 1.2em;
+}
+.closing-text {
+  font-family: var(--font-serif);
+  font-size: 0.92rem;
+  line-height: 2.4;
+  color: var(--brown-text);
+  margin-top: 40px;
+}
+
+/* ==============================
+   03: エホンリウムとは
+   ============================== */
+.sec-about {
+  padding: 100px 0 120px;
+}
+.sec-about .section-inner {
+  display: flex;
+  gap: 5vw;
+  align-items: center;
+}
+.sec-about .illust-area {
+  flex: 0 0 42%;
+  max-width: 440px;
+}
+.sec-about .illust-area img {
+  width: 100%;
+}
+.sec-about .text-area {
+  flex: 1;
+  padding-left: 2vw;
+}
+.sec-about h2 {
+  font-size: clamp(1rem, 1.4vw, 1.15rem);
+  margin-bottom: 28px;
+}
+.sec-about .body-text {
+  font-size: 0.85rem;
+  line-height: 2.2;
+  margin-bottom: 20px;
+}
+.about-name-explain {
+  font-size: 0.82rem;
+  color: var(--brown-light);
+  line-height: 2.2;
+  margin-bottom: 24px;
+  padding: 16px 0;
+  border-top: 1px solid rgba(139, 158, 107, 0.15);
+  border-bottom: 1px solid rgba(139, 158, 107, 0.15);
+}
+
+/* 4 Steps Flow */
+.steps-flow {
+  margin-top: 50px;
+}
+.steps-flow h3 {
+  font-size: 0.9rem;
+  color: var(--green-moss);
+  margin-bottom: 28px;
+  letter-spacing: 0.15em;
+}
+.step-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 20px;
+  position: relative;
+}
+.step-num {
+  font-family: var(--font-serif);
+  font-size: 0.75rem;
+  color: var(--green-leaf);
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  border: 1px solid var(--green-leaf);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 4px;
+}
+.step-content h4 {
+  font-family: var(--font-serif);
+  font-size: 0.88rem;
+  font-weight: 400;
+  margin-bottom: 4px;
+}
+.step-content p {
+  font-size: 0.8rem;
+  color: var(--brown-light);
+  line-height: 1.9;
+}
+.step-line {
+  position: absolute;
+  left: 12px;
+  top: 32px;
+  bottom: -16px;
+  width: 1px;
+  background: linear-gradient(to bottom, var(--green-leaf), transparent);
+}
+
+/* ==============================
+   04: エホンリウムの特徴
+   ============================== */
+.sec-features {
+  padding: 80px 0 120px;
+}
+.sec-features .top-area {
+  display: flex;
+  gap: 4vw;
+  align-items: flex-start;
+  flex-direction: row-reverse;
+  margin-bottom: 60px;
+}
+.sec-features .illust-area {
+  flex: 0 0 45%;
+  max-width: 460px;
+}
+.sec-features .illust-area img {
+  width: 100%;
+}
+.sec-features h2 {
+  font-size: clamp(0.95rem, 1.3vw, 1.1rem);
+  line-height: 2.4;
+  padding-top: 40px;
+}
+.features-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px 6vw;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.feature-item {
+  position: relative;
+}
+.feature-item:nth-child(even) {
+  padding-top: 30px;
+}
+.feature-label {
+  font-family: var(--font-serif);
+  font-size: 0.7rem;
+  color: var(--green-leaf);
+  letter-spacing: 0.15em;
+  margin-bottom: 8px;
+}
+.feature-item h3 {
+  font-size: 0.95rem;
+  font-weight: 400;
+  margin-bottom: 12px;
+  line-height: 2;
+}
+.feature-item p {
+  font-size: 0.82rem;
+  color: var(--brown-light);
+  line-height: 2.1;
+}
+
+/* ==============================
+   05: こんな方におすすめ
+   ============================== */
+.sec-recommend {
+  padding: 80px 0 100px;
+}
+.sec-recommend .section-inner {
+  display: flex;
+  gap: 5vw;
+  align-items: flex-start;
+}
+.sec-recommend .illust-area {
+  flex: 0 0 35%;
+  max-width: 340px;
+  padding-top: 30px;
+}
+.sec-recommend .illust-area img {
+  width: 100%;
+}
+.sec-recommend .text-area {
+  flex: 1;
+}
+.sec-recommend h2 {
+  font-size: clamp(0.95rem, 1.3vw, 1.1rem);
+  margin-bottom: 36px;
+}
+.recommend-list {
+  columns: 1;
+}
+.recommend-list li {
+  font-size: 0.84rem;
+  line-height: 2;
+  padding: 6px 0 6px 20px;
+  position: relative;
+  color: var(--brown-light);
+  break-inside: avoid;
+}
+.recommend-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 14px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(123, 175, 82, 0.25);
+}
+
+/* ==============================
+   06: 体験会の紹介
+   ============================== */
+.sec-workshop {
+  padding: 100px 0 120px;
+}
+.sec-workshop .section-inner {
+  display: flex;
+  gap: 5vw;
+  align-items: flex-start;
+  flex-direction: row-reverse;
+}
+.sec-workshop .illust-area {
+  flex: 0 0 30%;
+  max-width: 280px;
+  padding-top: 20px;
+}
+.sec-workshop .illust-area img {
+  width: 100%;
+  animation: float 7s ease-in-out infinite;
+}
+.sec-workshop .text-area {
+  flex: 1;
+}
+.sec-workshop h2 {
+  font-size: clamp(0.95rem, 1.3vw, 1.1rem);
+  margin-bottom: 24px;
+}
+.sec-workshop .body-text {
+  font-size: 0.85rem;
+  line-height: 2.2;
+  margin-bottom: 32px;
+}
+
+.workshop-steps {
+  margin: 40px auto;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+.ws-step {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.82rem;
+  color: var(--brown-light);
+}
+.ws-step-num {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(123, 175, 82, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-serif);
+  font-size: 0.72rem;
+  color: var(--green-leaf);
+  flex-shrink: 0;
+}
+.ws-step-arrow {
+  color: var(--brown-pale);
+  font-size: 0.7rem;
+}
+
+.workshop-table {
+  margin: 40px 0;
+  width: 100%;
+  max-width: 500px;
+}
+.workshop-table tr {
+  border-bottom: 1px solid rgba(139, 158, 107, 0.1);
+}
+.workshop-table th {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: 0.78rem;
+  color: var(--green-moss);
+  padding: 12px 16px 12px 0;
+  text-align: left;
+  vertical-align: top;
+  white-space: nowrap;
+  width: 120px;
+}
+.workshop-table td {
+  font-size: 0.82rem;
+  color: var(--brown-light);
+  padding: 12px 0;
+}
+
+/* ==============================
+   07: ビフォーアフター
+   ============================== */
+.sec-transform {
+  padding: 80px 0 120px;
+}
+.sec-transform h2 {
+  font-size: clamp(0.95rem, 1.3vw, 1.1rem);
+  text-align: left;
+  margin-bottom: 50px;
+  max-width: 600px;
+}
+.transform-layout {
+  display: flex;
+  gap: 4vw;
+  align-items: flex-start;
+}
+.transform-stories {
+  flex: 1;
+}
+.transform-illust {
+  flex: 0 0 38%;
+  max-width: 380px;
+  padding-top: 40px;
+}
+.transform-illust img {
+  width: 100%;
+}
+.transform-item {
+  margin-bottom: 40px;
+  padding-left: 16px;
+  border-left: 2px solid rgba(123, 175, 82, 0.15);
+}
+.transform-item h3 {
+  font-size: 0.88rem;
+  font-weight: 400;
+  margin-bottom: 8px;
+  color: var(--brown-text);
+  line-height: 2;
+}
+.transform-item p {
+  font-size: 0.82rem;
+  color: var(--brown-light);
+  line-height: 2.1;
+  margin-bottom: 8px;
+}
+.transform-item .voice {
+  font-family: var(--font-serif);
+  font-size: 0.84rem;
+  color: var(--green-moss);
+  font-style: italic;
+  line-height: 2;
+}
+
+/* ==============================
+   08: 体験会の先にある道
+   ============================== */
+.sec-next-path {
+  padding: 80px 0 100px;
+}
+.sec-next-path .section-inner {
+  display: flex;
+  gap: 5vw;
+  align-items: center;
+  flex-direction: row-reverse;
+}
+.sec-next-path .illust-area {
+  flex: 0 0 40%;
+  max-width: 400px;
+}
+.sec-next-path .illust-area img {
+  width: 100%;
+}
+.sec-next-path .text-area {
+  flex: 1;
+}
+.sec-next-path h2 {
+  font-size: clamp(0.95rem, 1.3vw, 1.1rem);
+  margin-bottom: 24px;
+}
+.sec-next-path .body-text {
+  font-size: 0.85rem;
+  line-height: 2.2;
+  margin-bottom: 28px;
+}
+
+/* ==============================
+   09: 大切にしていること
+   ============================== */
+.sec-values {
+  padding: 100px 0 120px;
+}
+.sec-values .section-inner {
+  display: flex;
+  gap: 5vw;
+  align-items: center;
+}
+.sec-values .illust-area {
+  flex: 0 0 35%;
+  max-width: 340px;
+}
+.sec-values .illust-area img {
+  width: 100%;
+  animation: sway 10s ease-in-out infinite;
+}
+.sec-values .text-area {
+  flex: 1;
+  padding-left: 2vw;
+}
+.sec-values h2 {
+  font-size: clamp(0.95rem, 1.3vw, 1.1rem);
+  margin-bottom: 24px;
+  line-height: 2.4;
+}
+.sec-values .body-text {
+  font-size: 0.85rem;
+  line-height: 2.4;
+}
+
+/* ==============================
+   10: 講師紹介
+   ============================== */
+.sec-instructors {
+  padding: 80px 0 100px;
+}
+.sec-instructors h2 {
+  font-size: clamp(0.95rem, 1.3vw, 1.1rem);
+  margin-bottom: 50px;
+  text-align: center;
+}
+.instructors-wrap {
+  display: flex;
+  gap: 6vw;
+  justify-content: center;
+  max-width: 800px;
+  margin: 0 auto 40px;
+}
+.instructor-card {
+  flex: 1;
+  max-width: 360px;
+}
+.instructor-name {
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  margin-bottom: 6px;
+  letter-spacing: 0.1em;
+}
+.instructor-role {
+  font-size: 0.75rem;
+  color: var(--green-moss);
+  margin-bottom: 16px;
+  letter-spacing: 0.05em;
+}
+.instructor-card p {
+  font-size: 0.82rem;
+  color: var(--brown-light);
+  line-height: 2.1;
+}
+.instructors-closing {
+  text-align: center;
+  font-family: var(--font-serif);
+  font-size: 0.88rem;
+  line-height: 2.4;
+  color: var(--brown-text);
+  margin-top: 48px;
+  max-width: 560px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ==============================
+   11: よくある質問
+   ============================== */
+.sec-faq {
+  padding: 80px 0 100px;
+}
+.sec-faq h2 {
+  font-size: clamp(0.95rem, 1.3vw, 1.1rem);
+  margin-bottom: 40px;
+}
+.faq-list {
+  max-width: 700px;
+}
+.faq-item {
+  margin-bottom: 28px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid rgba(139, 158, 107, 0.1);
+}
+.faq-q {
+  font-family: var(--font-serif);
+  font-size: 0.88rem;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+.faq-q-mark {
+  font-size: 0.8rem;
+  color: var(--green-leaf);
+  flex-shrink: 0;
+  font-weight: 500;
+}
+.faq-a {
+  font-size: 0.82rem;
+  color: var(--brown-light);
+  line-height: 2.1;
+  padding-left: 28px;
+}
+
+/* ==============================
+   12: 最終CTA
+   ============================== */
+.sec-final-cta {
+  padding: 100px 0 80px;
+  text-align: center;
+  position: relative;
+}
+.sec-final-cta .paper-plane-deco {
+  width: clamp(180px, 24vw, 300px);
+  margin: 0 auto 40px;
+  animation: paperPlane 6s ease-in-out infinite;
+}
+.sec-final-cta h2 {
+  font-size: clamp(1rem, 1.4vw, 1.15rem);
+  margin-bottom: 24px;
+  line-height: 2.4;
+}
+.sec-final-cta .body-text {
+  font-size: 0.85rem;
+  line-height: 2.4;
+  margin-bottom: 36px;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.cta-info {
+  font-size: 0.75rem;
+  color: var(--brown-pale);
+  margin-top: 16px;
+}
+
+/* ==============================
+   Footer
+   ============================== */
+.site-footer {
+  padding: 60px 6vw 40px;
+  text-align: center;
+  position: relative;
+}
+.footer-logo {
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  letter-spacing: 0.15em;
+  margin-bottom: 20px;
+}
+.footer-nav {
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+}
+.footer-nav a {
+  font-size: 0.72rem;
+  color: var(--brown-pale);
+  letter-spacing: 0.05em;
+}
+.footer-nav a:hover {
+  color: var(--brown-text);
+}
+.footer-copy {
+  font-size: 0.65rem;
+  color: var(--brown-pale);
+  letter-spacing: 0.05em;
+}
+
+/* ==============================
+   Inline SVG Decorations (leaves, dots)
+   ============================== */
+.leaf-svg {
+  fill: rgba(123, 175, 82, 0.2);
+}
+.petal-svg {
+  fill: rgba(242, 213, 208, 0.3);
+}
+
+/* ==============================
+   Responsive
+   ============================== */
+@media (max-width: 768px) {
+  .site-nav { display: none; }
+  .hamburger { display: flex; }
+
+  .mobile-nav {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(253, 248, 240, 0.97);
+    z-index: 99;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+  }
+  .mobile-nav.open { display: flex; }
+  .mobile-nav a {
+    font-family: var(--font-serif);
+    font-size: 1rem;
+    letter-spacing: 0.1em;
+    color: var(--brown-text);
+  }
+  .mobile-nav .close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--brown-text);
+    cursor: pointer;
+  }
+
+  .hero-main-copy {
+    font-size: clamp(1.1rem, 4vw, 1.4rem);
+    top: 12vh;
+    left: 5vw;
+    transform: none;
+  }
+  .hero-sub-area {
+    bottom: 6vh;
+    left: 5vw;
+    right: 5vw;
+    max-width: none;
+    background: rgba(253, 248, 240, 0.88);
+    padding: 20px 24px;
+    border-radius: 12px;
+    backdrop-filter: blur(4px);
+  }
+  .hero-bg img {
+    object-position: 70% 60%;
+  }
+  .hero-paper-plane {
+    right: 5vw;
+    top: 10vh;
+    width: 40px;
+  }
+
+  .sec-empathy .section-inner,
+  .sec-about .section-inner,
+  .sec-features .top-area,
+  .sec-recommend .section-inner,
+  .sec-workshop .section-inner,
+  .sec-next-path .section-inner,
+  .sec-values .section-inner,
+  .transform-layout {
+    flex-direction: column !important;
+  }
+
+  .sec-empathy .illust-area,
+  .sec-about .illust-area,
+  .sec-features .illust-area,
+  .sec-recommend .illust-area,
+  .sec-workshop .illust-area,
+  .sec-next-path .illust-area,
+  .sec-values .illust-area,
+  .transform-illust {
+    flex: none !important;
+    max-width: 300px !important;
+    margin: 0 auto 30px;
+    order: -1;
+  }
+
+  .sec-empathy .text-area,
+  .sec-about .text-area,
+  .sec-recommend .text-area,
+  .sec-workshop .text-area,
+  .sec-next-path .text-area,
+  .sec-values .text-area {
+    padding: 0 !important;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+  .feature-item:nth-child(even) { padding-top: 0; }
+
+  .instructors-wrap {
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+  }
+
+  .section { padding: 80px 0; }
+
+  .closing-text { text-align: center; }
+
+  .ws-flow-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+  }
+  .ws-flow-wrap .workshop-steps {
+    display: contents;
+  }
+
+  .br-desktop { display: none; }
+}
+
+@media (max-width: 600px) {
+  html { font-size: 15px; }
+  .site-header { padding: 16px 20px; }
+  .site-header.scrolled { padding: 10px 20px; }
+  .section-inner { padding: 0 5vw; }
+  .recommend-list { columns: 1; }
+}
+
+/* ==============================
+   Reduced Motion
+   ============================== */
+@media (prefers-reduced-motion: reduce) {
+  .fade-in, .fade-in-left, .fade-in-right, .fade-in-slow {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .deco-leaf, .deco-leaf-2, .deco-float, .deco-shimmer,
+  .hero-paper-plane, .sec-workshop .illust-area img,
+  .sec-values .illust-area img, .sec-empathy .illust-area img,
+  .sec-final-cta .paper-plane-deco,
+  .book-spread .illust-side img,
+  .sec-instructors .instructors-illust img,
+  .sec-faq .faq-illust img {
+    animation: none;
+  }
+}
+
+/* ── Scattered small decorations ── */
+.section-deco {
+  position: relative;
+  height: 60px;
+  overflow: visible;
+  pointer-events: none;
+}
+.section-deco .deco-item {
+  position: absolute;
+  opacity: 0;
+  transition: opacity 1.2s ease, transform 1.2s ease;
+  transform: translateY(10px);
+}
+.section-deco .deco-item.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+/* Leaf shape via CSS */
+.deco-tiny-leaf {
+  width: 18px;
+  height: 12px;
+  background: var(--green-leaf);
+  opacity: 0.35;
+  border-radius: 0 80% 0 80%;
+  display: inline-block;
+}
+.deco-tiny-leaf.leaf-2 {
+  background: #A8C97F;
+  opacity: 0.25;
+  transform: rotate(45deg);
+  width: 14px;
+  height: 9px;
+}
+.deco-tiny-leaf.leaf-3 {
+  background: #C9D99A;
+  opacity: 0.3;
+  transform: rotate(-30deg);
+  width: 11px;
+  height: 7px;
+}
+/* Tiny dot / pollen */
+.deco-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--coral-warm);
+  opacity: 0.3;
+  display: inline-block;
+}
+.deco-dot.dot-green {
+  background: var(--green-leaf);
+  opacity: 0.2;
+  width: 4px;
+  height: 4px;
+}
+/* Small star sparkle */
+.deco-sparkle {
+  width: 8px;
+  height: 8px;
+  position: relative;
+  display: inline-block;
+}
+.deco-sparkle::before,
+.deco-sparkle::after {
+  content: '';
+  position: absolute;
+  background: var(--brown-pale);
+  border-radius: 2px;
+}
+.deco-sparkle::before {
+  width: 2px;
+  height: 8px;
+  top: 0;
+  left: 3px;
+}
+.deco-sparkle::after {
+  width: 8px;
+  height: 2px;
+  top: 3px;
+  left: 0;
+}
+/* Floating animations for decorations */
+@keyframes decoFloat1 {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-6px) rotate(8deg); }
+}
+@keyframes decoFloat2 {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-4px) rotate(-12deg); }
+}
+@keyframes decoDrift {
+  0%, 100% { transform: translateX(0) translateY(0); }
+  33% { transform: translateX(3px) translateY(-4px); }
+  66% { transform: translateX(-2px) translateY(-2px); }
+}
+.section-deco .deco-item.visible .deco-tiny-leaf {
+  animation: decoFloat1 5s ease-in-out infinite;
+}
+.section-deco .deco-item.visible .deco-tiny-leaf.leaf-2 {
+  animation: decoFloat2 6s ease-in-out infinite;
+}
+.section-deco .deco-item.visible .deco-tiny-leaf.leaf-3 {
+  animation: decoDrift 7s ease-in-out infinite;
+}
+.section-deco .deco-item.visible .deco-dot {
+  animation: decoFloat2 4s ease-in-out infinite;
+}
+.section-deco .deco-item.visible .deco-sparkle {
+  animation: decoDrift 5s ease-in-out infinite;
+}
+
+@media (max-width: 768px) {
+  .section-deco { height: 40px; }
+}
+/* Small bird decoration */
+.deco-bird {
+  position: relative;
+  height: 120px;
+  overflow: visible;
+  pointer-events: none;
+}
+.deco-bird-wrap {
+  position: absolute;
+  opacity: 0;
+  transition: opacity 1.4s ease, transform 1.4s ease;
+  transform: translateX(-15px) translateY(8px);
+}
+.deco-bird img {
+  width: 180px;
+  mix-blend-mode: multiply;
+  filter: contrast(1.6) saturate(1.8);
+}
+.deco-bird-wrap.visible {
+  opacity: 1;
+  transform: translateX(0) translateY(0);
+  animation: birdDrift 9s ease-in-out infinite;
+}
+@keyframes birdDrift {
+  0%, 100% { transform: translateX(0) translateY(0) rotate(0deg); }
+  25% { transform: translateX(6px) translateY(-5px) rotate(1deg); }
+  50% { transform: translateX(10px) translateY(-8px) rotate(-1deg); }
+  75% { transform: translateX(4px) translateY(-3px) rotate(0.5deg); }
+}
+@media (max-width: 768px) {
+  .deco-bird img { width: 130px; }
+  .deco-bird { height: 80px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .section-deco .deco-item.visible .deco-tiny-leaf,
+  .section-deco .deco-item.visible .deco-dot,
+  .section-deco .deco-item.visible .deco-sparkle {
+    animation: none;
+  }
+  .deco-bird-wrap.visible { animation: none; }
+}
+
+/* ==============================
+   Picture-book enhancements
+   ============================== */
+.book-spread {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  padding: 100px 0;
+  position: relative;
+  overflow: hidden;
+}
+.book-spread .section-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 6vw;
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 5vw;
+}
+.book-spread .illust-side {
+  flex: 0 0 45%;
+  max-width: 440px;
+}
+.book-spread .illust-side img {
+  width: 100%;
+}
+.book-spread .text-side {
+  flex: 1;
+}
+.book-spread h2 {
+  font-size: clamp(0.95rem, 1.4vw, 1.15rem);
+  margin-bottom: 28px;
+  line-height: 2.4;
+}
+.book-spread .book-text {
+  font-size: 0.85rem;
+  line-height: 2.4;
+  color: var(--brown-light);
+}
+.book-spread .book-text p {
+  margin-bottom: 20px;
+}
+.book-spread .transform-item {
+  margin-bottom: 28px;
+  padding-bottom: 24px;
+  border-bottom: 1px dotted rgba(81,70,63,0.12);
+}
+.book-spread .transform-item:last-child {
+  border-bottom: none;
+}
+.book-spread .transform-item .voice {
+  display: block;
+  margin-top: 8px;
+  font-size: 0.8rem;
+  color: var(--coral-warm);
+  font-style: italic;
+}
+.book-spread .feature-label {
+  display: inline-block;
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  color: var(--green-leaf);
+  border: 1px solid var(--green-leaf);
+  padding: 2px 10px;
+  border-radius: 20px;
+  margin-bottom: 6px;
+}
+.book-spread h3 {
+  font-size: 0.9rem;
+  color: var(--brown-text);
+  margin-bottom: 6px;
+}
+.book-text .book-spread h3 + p,
+.book-spread .book-text > div > p {
+  font-size: 0.82rem;
+}
+
+/* Reverse layout variant */
+.book-spread.reverse .section-inner {
+  flex-direction: row-reverse;
+}
+
+/* Centered layout variant */
+.book-spread.centered .section-inner {
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+}
+.book-spread.centered .illust-side {
+  flex: none;
+  max-width: 320px;
+  margin-bottom: 40px;
+}
+
+/* FAQ with illustration */
+.sec-faq .faq-layout {
+  display: flex;
+  gap: 5vw;
+  align-items: flex-start;
+}
+.sec-faq .faq-illust {
+  flex: 0 0 28%;
+  max-width: 260px;
+  padding-top: 20px;
+}
+.sec-faq .faq-illust img {
+  width: 100%;
+}
+.sec-faq .faq-content {
+  flex: 1;
+}
+
+/* Instructors with illustration */
+.sec-instructors .instructors-layout {
+  display: flex;
+  gap: 5vw;
+  align-items: center;
+}
+.sec-instructors .instructors-illust {
+  flex: 0 0 30%;
+  max-width: 280px;
+}
+.sec-instructors .instructors-illust img {
+  width: 100%;
+}
+.sec-instructors .instructors-content {
+  flex: 1;
+}
+
+@media (max-width: 768px) {
+  .book-spread { min-height: auto; padding: 70px 0; }
+  .book-spread .section-inner {
+    flex-direction: column !important;
+  }
+  .book-spread .illust-side {
+    flex: none !important;
+    max-width: 280px !important;
+    margin: 0 auto 24px;
+    order: -1;
+  }
+  .book-spread .text-side { padding: 0 !important; }
+  .sec-faq .faq-layout,
+  .sec-instructors .instructors-layout {
+    flex-direction: column;
+  }
+  .sec-faq .faq-illust,
+  .sec-instructors .instructors-illust {
+    flex: none;
+    max-width: 220px;
+    margin: 0 auto 24px;
+  }
+}
+
+/* ==============================
+   Wave Text Animation (紙飛行機)
+   ============================== */
+.wave-text-section {
+  min-height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 50px 0 0;
+  overflow: hidden;
+}
+.wave-text-container {
+  position: relative;
+  width: 95%;
+  max-width: 960px;
+  height: 200px;
+  margin: 0 auto;
+}
+.wave-text-container .plane-cursor {
+  position: absolute;
+  width: 80px;
+  height: auto;
+  opacity: 0;
+  z-index: 2;
+  filter: drop-shadow(0 2px 6px rgba(0,0,0,0.1));
+  pointer-events: none;
+}
+.wave-text-container .wave-char {
+  position: absolute;
+  font-family: 'Noto Serif JP', serif;
+  font-size: clamp(1.1rem, 2.2vw, 1.5rem);
+  font-weight: 500;
+  color: var(--green-leaf);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  white-space: nowrap;
+}
+.wave-text-container .wave-char.revealed {
+  opacity: 1;
+}
+.wave-text-container .wave-char.line2 {
+  color: var(--green-dark, #5a9a3c);
+}
+
+/* Plane trail sparkle */
+.wave-text-container .plane-trail {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(123,175,82,0.35);
+  pointer-events: none;
+  opacity: 0;
+}
+
+@media (max-width: 768px) {
+  .wave-text-container {
+    height: 160px;
+    max-width: 95%;
+  }
+  .wave-text-container .wave-char {
+    font-size: clamp(0.85rem, 4vw, 1.1rem);
+  }
+  .wave-text-container .plane-cursor {
+    width: 56px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wave-text-container .wave-char {
+    opacity: 1 !important;
+    transition: none !important;
+  }
+  .wave-text-container .plane-cursor {
+    display: none;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- ========== Header ========== -->
+<header class="site-header" id="siteHeader">
+  <a href="#" class="site-logo"><img src="ロゴ.png" alt="エホンリウム ロゴ" class="site-logo-img">エホンリウム</a>
+  <nav class="site-nav">
+    <a href="index.html">エホンリウムとは</a>
+    <a href="workshop.html">体験会</a>
+    <a href="guide.html">エホンリウムガイド<br><span style="font-size:0.65rem;color:var(--brown-pale);">（養成講座）</span></a>
+  </nav>
+  <button class="hamburger" id="hamburgerBtn" aria-label="メニュー">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<!-- Mobile Nav -->
+<div class="mobile-nav" id="mobileNav">
+  <button class="close-btn" id="closeNav" aria-label="閉じる">×</button>
+  <a href="index.html" onclick="closeMobileNav()">エホンリウムとは</a>
+  <a href="workshop.html" onclick="closeMobileNav()">体験会</a>
+  <a href="guide.html" onclick="closeMobileNav()">エホンリウムガイド（養成講座）</a>
+</div>
+
+<!-- ========== 01: Hero / First View ========== -->
+<section class="hero" id="hero">
+  <!-- Book-open covers -->
+  <div class="book-cover book-cover-left" aria-hidden="true">
+    <span class="book-cover-title"><img src="ロゴ.png" alt="" class="book-cover-logo">エホンリウム</span>
+  </div>
+  <div class="book-cover book-cover-right" aria-hidden="true">
+    <span class="book-cover-title">— 自分を知る絵本の時間 —</span>
+  </div>
+  <div class="hero-bg">
+    <img src="参考画像.png" alt="春の朝のような、明るく希望を感じる絵本の世界" loading="eager">
+  </div>
+  <img src="イラスト/８.png" alt="" class="hero-paper-plane" aria-hidden="true">
+  <div class="hero-content">
+    <h1 class="hero-main-copy fade-in-slow">わたしを知ることから、<br>わたしの仕事がはじまる。</h1>
+    <div class="hero-sub-area fade-in delay-2">
+      <p class="hero-sub-copy serif">
+        価値観カードと絵本づくりで、<br class="br-desktop">自分らしい起業の軸を見つける。
+      </p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ========== 02: 共感・悩み（見出し） ========== -->
+<section class="book-spread centered" id="empathy" style="padding-bottom:0; min-height:auto;">
+  <div class="section-inner">
+    <h2 class="fade-in" style="text-align:center; margin-bottom:0;">「何か始めたい」<br>でも、何を仕事にしたらいいんだろう。</h2>
+  </div>
+</section>
+
+<!-- ========== 02: 共感・悩み（本文＋イラスト） ========== -->
+<section class="book-spread" id="empathy-body" style="padding-top:40px;">
+  <div class="section-inner">
+    <div class="illust-side fade-in-right">
+      <img src="イラスト/９.png" alt="ランタンを持つこびとと道しるべ" loading="lazy">
+    </div>
+    <div class="text-side">
+      <div class="book-text fade-in delay-1">
+        <p>子どもとの時間は、大切にしたい。<br>でも、自分の人生や仕事も大切にしたい。</p>
+        <p>わたしには何ができるんだろう。<br>自分らしさや強みを、言葉にできない。<br>一から何かをつくる自信がない。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ========== 02b: 転換メッセージ ========== -->
+<section class="book-spread reverse" id="empathy-bridge">
+  <div class="section-inner">
+    <div class="illust-side fade-in-left">
+      <img src="イラスト/４.png" alt="切り株に座るこびとと、価値観カード、絵本、鏡" loading="lazy">
+    </div>
+    <div class="text-side">
+      <p class="closing-text fade-in delay-1">仕事を考える前に、まずは<br>「わたし」を知ることから始めてみませんか。</p>
+    </div>
+  </div>
+</section>
+
+<!-- deco: leaves -->
+<div class="section-deco" aria-hidden="true">
+  <div class="deco-item fade-in" style="left:18%; top:10px;">
+    <span class="deco-tiny-leaf"></span>
+  </div>
+  <div class="deco-item fade-in" style="left:22%; top:28px;">
+    <span class="deco-tiny-leaf leaf-2"></span>
+  </div>
+  <div class="deco-item fade-in" style="left:16%; top:22px;">
+    <span class="deco-dot dot-green"></span>
+  </div>
+</div>
+
+<!-- ========== 03: 見出しアニメーション ========== -->
+<section class="wave-text-section" id="about-heading">
+  <div class="wave-text-container" id="waveTextContainer">
+    <img src="イラスト/８.png" alt="" class="plane-cursor" id="planeCursor" aria-hidden="true">
+    <!-- Characters placed by JS -->
+  </div>
+</section>
+
+<!-- ========== 03: エホンリウムとは ========== -->
+<section class="book-spread reverse" id="about">
+  <div class="section-inner">
+    <div class="illust-side fade-in-left">
+      <img src="イラスト/７.png" alt="開いた絵本から虹色の道が広がる" loading="lazy">
+    </div>
+    <div class="text-side">
+      <div class="book-text fade-in delay-1">
+        <p>「エホンリウム」は、絵本（EHON）と<br>育む場所を表す「arium」から生まれた名前です。</p>
+        <p>価値観カードと対話を通して、<br>大切にしていることや、これまでの経験を見つめ、<br>それを一冊の絵本にします。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ========== 03b: 4つの流れ ========== -->
+<section class="book-spread centered" id="flow">
+  <div class="section-inner">
+    <div class="steps-flow fade-in" style="width:100%; max-width:480px;">
+      <h3 style="text-align:center; margin-bottom:36px;">4つの流れ</h3>
+      <div class="step-item">
+        <span class="step-num">1</span>
+        <div class="step-content"><h4>自分を知る</h4><p>大切にしたいことを見つける</p></div>
+        <span class="step-line"></span>
+      </div>
+      <div class="step-item">
+        <span class="step-num">2</span>
+        <div class="step-content"><h4>自分の未来を描く</h4><p>これからの生き方を考える</p></div>
+        <span class="step-line"></span>
+      </div>
+      <div class="step-item">
+        <span class="step-num">3</span>
+        <div class="step-content"><h4>一冊の絵本にする</h4><p>物語を目に見える形で残す</p></div>
+        <span class="step-line"></span>
+      </div>
+      <div class="step-item">
+        <span class="step-num">4</span>
+        <div class="step-content"><h4>誰かに届ける</h4><p>体験を小さな仕事へ育てていく</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ========== 04: エホンリウムの特徴 ========== -->
+<section class="book-spread" id="features">
+  <div class="section-inner">
+    <div class="illust-side fade-in-right">
+      <img src="イラスト/16.png" alt="価値観カードと絵本が物語につながる" loading="lazy">
+    </div>
+    <div class="text-side">
+      <h2 class="fade-in">価値観を見つけて終わらない。<br class="br-desktop">物語になり、次の一歩につながります。</h2>
+      <div class="book-text">
+        <div class="fade-in delay-1" style="margin-bottom:24px;">
+          <span class="feature-label">特徴 1</span>
+          <h3 style="line-height:2;">価値観カードで、心の中を見つける</h3>
+          <p>カードを選びながら話すことで、<br>大切にしていることが見えてきます。</p>
+        </div>
+        <div class="fade-in delay-2" style="margin-bottom:24px;">
+          <span class="feature-label">特徴 2</span>
+          <h3 style="line-height:2;">対話から、自分の経験を捉え直す</h3>
+          <p>当たり前だと思っていた経験の中に、<br>意味や強みを見つけます。</p>
+        </div>
+        <div class="fade-in delay-3" style="margin-bottom:24px;">
+          <span class="feature-label">特徴 3</span>
+          <h3 style="line-height:2;">想いが一冊の絵本になる</h3>
+          <p>迷ったときに何度でも戻れる、<br>自分だけの一冊です。</p>
+        </div>
+        <div class="fade-in delay-4">
+          <span class="feature-label">特徴 4</span>
+          <h3 style="line-height:2;">体験を仕事にする道がある</h3>
+          <p>エホンリウムガイドとして、<br>体験会を届けられます。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- deco: sparkle + dot -->
+<div class="section-deco" aria-hidden="true">
+  <div class="deco-item fade-in" style="right:20%; top:15px;">
+    <span class="deco-sparkle"></span>
+  </div>
+  <div class="deco-item fade-in" style="right:24%; top:32px;">
+    <span class="deco-dot"></span>
+  </div>
+</div>
+
+<!-- ========== 05: こんな方におすすめ ========== -->
+<section class="book-spread reverse" id="recommend">
+  <div class="section-inner">
+    <div class="illust-side fade-in-left" style="max-width:320px;">
+      <img src="イラスト/29.png" alt="こんな想いを持つママへ" loading="lazy" style="animation: float 7s ease-in-out infinite;">
+    </div>
+    <div class="text-side">
+      <h2 class="fade-in">こんな想いを持つママへ</h2>
+      <ul class="recommend-list fade-in delay-1">
+        <li>育休中に、これからの働き方を考えたい</li>
+        <li>自宅やオンラインで、自分のペースで働きたい</li>
+        <li>起業したいけれど、何をすればよいか分からない</li>
+        <li>自分の経験や想いを、誰かの役に立てたい</li>
+        <li>大きなリスクを負わず、小さく始めたい</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- deco: bird -->
+<div class="deco-bird" aria-hidden="true">
+  <div class="deco-bird-wrap fade-in" style="right:12%; top:0;">
+    <img src="イラスト/19.png" alt="">
+  </div>
+</div>
+
+<!-- ========== 06: 体験会の紹介（上部：イラスト付き） ========== -->
+<section class="book-spread" id="workshop">
+  <div class="section-inner">
+    <div class="illust-side fade-in-right">
+      <img src="イラスト/25.png" alt="自分の物語に出会う体験会" loading="lazy" style="animation: float 8s ease-in-out infinite;">
+    </div>
+    <div class="text-side">
+      <h2 class="fade-in">まずは、自分の物語に出会うことから。</h2>
+      <div class="book-text fade-in delay-1">
+        <p>2時間のオンライン体験会。<br>価値観カードを選び、対話しながら、<br>大切にしていることを見つけます。</p>
+        <p>最後には、その言葉が<br>自分だけの絵本になります。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 06b: 体験会の詳細（中央配置） ========== -->
+<section class="book-spread centered" id="workshop-detail">
+  <div class="section-inner">
+    <div class="fade-in" style="width:100%; max-width:600px;">
+      <div class="ws-flow-wrap">
+        <div class="workshop-steps" style="margin-bottom:8px;">
+          <div class="ws-step"><span class="ws-step-num">1</span>自己紹介</div>
+          <span class="ws-step-arrow">→</span>
+          <div class="ws-step"><span class="ws-step-num">2</span>バリュービジョンゲーム</div>
+          <span class="ws-step-arrow">→</span>
+          <div class="ws-step"><span class="ws-step-num">3</span>対話</div>
+        </div>
+        <div class="workshop-steps" style="margin-top:0;">
+          <span class="ws-step-arrow">→</span>
+          <div class="ws-step"><span class="ws-step-num">4</span>絵本作成</div>
+          <span class="ws-step-arrow">→</span>
+          <div class="ws-step"><span class="ws-step-num">5</span>シェアタイム</div>
+        </div>
+      </div>
+    </div>
+
+    <table class="workshop-table fade-in delay-1" style="max-width:460px;">
+      <tr><th>所要時間</th><td>2時間</td></tr>
+      <tr><th>開催形式</th><td>オンライン</td></tr>
+      <tr><th>参加費</th><td>3,000円（税込）</td></tr>
+      <tr><th>持ち帰れるもの</th><td>オリジナル絵本PDF</td></tr>
+      <tr><th>事前準備</th><td>特になし・PC推奨</td></tr>
+    </table>
+
+    <div class="fade-in delay-2">
+      <a href="workshop.html" class="btn-cta btn-coral">体験会の日程を確認する</a>
+    </div>
+  </div>
+</section>
+
+<!-- deco: leaf + dots -->
+<div class="section-deco" aria-hidden="true">
+  <div class="deco-item fade-in" style="left:45%; top:8px;">
+    <span class="deco-tiny-leaf leaf-3"></span>
+  </div>
+  <div class="deco-item fade-in" style="left:50%; top:30px;">
+    <span class="deco-dot dot-green"></span>
+  </div>
+  <div class="deco-item fade-in" style="left:48%; top:18px;">
+    <span class="deco-dot"></span>
+  </div>
+</div>
+
+<!-- ========== 07: ビフォーアフター ========== -->
+<section class="book-spread reverse" id="transform">
+  <div class="section-inner">
+    <div class="illust-side fade-in-left">
+      <img src="イラスト/２.png" alt="大きな木に座る人と風船、道しるべ" loading="lazy">
+    </div>
+    <div class="text-side">
+      <h2 class="fade-in">言葉にならなかった想いが、<br>これからを照らす物語になる。</h2>
+      <div class="book-text">
+        <div class="transform-item fade-in delay-1">
+          <p>想いを言葉にできなかった方が、<br>短く大切な言葉にまとめられました。</p>
+          <span class="voice">「心が楽になりました」</span>
+        </div>
+        <div class="transform-item fade-in delay-2">
+          <p>自分らしさが分からなかった方が、<br>自分の中にある価値を認められました。</p>
+          <span class="voice">「初めて、わたしらしさを受け止められました」</span>
+        </div>
+        <div class="transform-item fade-in delay-3">
+          <p>完成した絵本を発信したところ、<br>新しいつながりが生まれました。</p>
+          <span class="voice">「自分の物語が、人との入口になりました」</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ========== 08: 体験会の先にある道 ========== -->
+<section class="book-spread" id="next-path">
+  <div class="section-inner">
+    <div class="illust-side fade-in-right">
+      <img src="イラスト/21.png" alt="体験を誰かに届ける" loading="lazy">
+    </div>
+    <div class="text-side">
+      <h2 class="fade-in">その体験を、<br class="br-desktop">今度は誰かの一歩に。</h2>
+      <div class="book-text fade-in delay-1">
+        <p>自分だけの絵本が生まれたとき、<br>「この時間を、誰かにも届けたい」<br>と思った方へ。</p>
+        <p>エホンリウムガイド養成講座で、<br>用意された仕組みを活用しながら<br>自分のペースで体験会を開催できます。</p>
+      </div>
+      <div class="fade-in delay-2" style="margin-top:32px;">
+        <a href="#" class="btn-cta btn-lavender">エホンリウムガイドについて見る</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ========== 09: 大切にしていること ========== -->
+<section class="book-spread reverse" id="values">
+  <div class="section-inner">
+    <div class="illust-side fade-in-left">
+      <img src="イラスト/22.png" alt="自分と人と未来をつなぐ輪" loading="lazy" style="animation: sway 10s ease-in-out infinite;">
+    </div>
+    <div class="text-side">
+      <h2 class="fade-in">一冊の物語から、<br class="br-desktop">自分と人と未来をつなぐ輪を。</h2>
+      <div class="book-text fade-in delay-1">
+        <p>自分が大切にしていることを知り、<br>自分らしい一歩を踏み出す。</p>
+        <p>その経験を、次は誰かへ届けていく。<br>受け取った人が、また歩き始める。</p>
+        <p>そんな小さな輪が、<br>絵本を通して広がっていくことを願っています。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- deco: sparkle + leaf -->
+<div class="section-deco" aria-hidden="true">
+  <div class="deco-item fade-in" style="right:30%; top:12px;">
+    <span class="deco-tiny-leaf"></span>
+  </div>
+  <div class="deco-item fade-in" style="right:26%; top:25px;">
+    <span class="deco-sparkle"></span>
+  </div>
+</div>
+
+<!-- ========== 10: 講師紹介 ========== -->
+<section class="section sec-instructors" id="instructors">
+  <div class="section-inner">
+    <h2 class="fade-in" style="margin-bottom:40px;">絵本と対話、<br class="br-desktop">それぞれの専門家がつくりました。</h2>
+
+    <div class="instructors-layout">
+      <div class="instructors-illust fade-in-left">
+        <img src="イラスト/30.png" alt="講師紹介" loading="lazy" style="animation: gentleRotate 8s ease-in-out infinite;">
+      </div>
+      <div class="instructors-content">
+        <div class="instructor-card fade-in delay-1">
+          <p class="instructor-name">内田 琢也</p>
+          <p class="instructor-role">バリュービジョン協会／価値観ファシリテーター</p>
+          <p>対話を通して、一人ひとりが大切にしている価値観を見つける機会を届けている。</p>
+        </div>
+        <div class="instructor-card fade-in delay-2" style="margin-top:32px;">
+          <p class="instructor-name">秋月 偲希</p>
+          <p class="instructor-role">EHON GOTO 代表／絵本作家</p>
+          <p>経験や活動の原点を聴き、その人らしい物語として絵本にする活動を行っている。</p>
+        </div>
+        <p class="instructors-closing fade-in delay-3" style="text-align:left; margin-left:0;">
+          2つの専門性を掛け合わせて、<br>エホンリウムは生まれました。
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ========== 11: よくある質問 ========== -->
+<section class="section sec-faq" id="faq">
+  <div class="section-inner">
+    <h2 class="fade-in" style="margin-bottom:40px;">よくある質問</h2>
+
+    <div class="faq-layout">
+      <div class="faq-illust fade-in-left">
+        <img src="イラスト/28.png" alt="よくある質問" loading="lazy" style="animation: float 8s ease-in-out infinite;">
+      </div>
+      <div class="faq-content">
+        <div class="faq-list">
+          <div class="faq-item fade-in delay-1">
+            <div class="faq-q"><span class="faq-q-mark">Q.</span>起業経験がなくても参加できますか？</div>
+            <p class="faq-a">はい。何を始めたいか決まっていない方にもおすすめです。</p>
+          </div>
+          <div class="faq-item fade-in delay-2">
+            <div class="faq-q"><span class="faq-q-mark">Q.</span>絵や文章が苦手でも大丈夫ですか？</div>
+            <p class="faq-a">大丈夫です。自分で絵を描く必要はありません。</p>
+          </div>
+          <div class="faq-item fade-in delay-1">
+            <div class="faq-q"><span class="faq-q-mark">Q.</span>子どもがそばにいても参加できますか？</div>
+            <p class="faq-a">オンライン開催なので、一緒の参加も可能です。</p>
+          </div>
+          <div class="faq-item fade-in delay-2">
+            <div class="faq-q"><span class="faq-q-mark">Q.</span>養成講座への申込みは必要ですか？</div>
+            <p class="faq-a">いいえ。体験会のみでも大丈夫です。</p>
+          </div>
+          <div class="faq-item fade-in delay-1">
+            <div class="faq-q"><span class="faq-q-mark">Q.</span>絵本を冊子にできますか？</div>
+            <p class="faq-a">PDFに加え、有料で冊子化できます。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ========== 12: 最終CTA ========== -->
+<section class="section sec-final-cta" id="final-cta">
+  <div class="section-inner">
+    <img src="イラスト/８.png" alt="" class="paper-plane-deco fade-in" aria-hidden="true">
+    <h2 class="fade-in delay-1">「何か始めたい」を、<br>わたしらしい一歩に変えてみませんか。</h2>
+    <p class="book-text fade-in delay-2" style="text-align:center; max-width:520px; margin:0 auto 32px;">
+      まずは、自分が何を大切にしているのかを<br>知ることから。<br class="br-desktop">あなたの中にある物語を、<br>一冊の絵本にしてみませんか。
+    </p>
+    <div class="fade-in delay-3">
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLScps3sHW0tsRKcsCWy_4JyRMFl2Z_eTFhvYKOvKWTzDq3i6YQ/viewform?usp=sharing" target="_blank" rel="noopener" class="btn-cta btn-coral">体験会に申し込む</a>
+      <p class="cta-info">オンライン開催｜2時間・3,000円（税込）</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ========== Footer ========== -->
+<footer class="site-footer">
+  <p class="footer-logo">エホンリウム</p>
+  <nav class="footer-nav">
+    <a href="index.html">エホンリウムとは</a>
+    <a href="workshop.html">体験会</a>
+    <a href="guide.html">エホンリウムガイド（養成講座）</a>
+  </nav>
+  <p class="footer-copy">© エホンリウム All rights reserved.</p>
+</footer>
+
+
+<!-- ========== JavaScript ========== -->
+<script>
+/* Scroll Animations (Intersection Observer) */
+(function() {
+  const targets = document.querySelectorAll('.fade-in, .fade-in-left, .fade-in-right, .fade-in-slow');
+
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    });
+
+    targets.forEach(el => observer.observe(el));
+  } else {
+    // Fallback: show everything
+    targets.forEach(el => el.classList.add('visible'));
+  }
+})();
+
+/* Header scroll effect */
+(function() {
+  const header = document.getElementById('siteHeader');
+  let lastScroll = 0;
+
+  window.addEventListener('scroll', () => {
+    const scrollY = window.pageYOffset;
+    if (scrollY > 80) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+    lastScroll = scrollY;
+  }, { passive: true });
+})();
+
+/* Parallax effect on illustrations */
+(function() {
+  const parallaxElements = document.querySelectorAll('.sec-about .illust-area, .sec-values .illust-area, .sec-features .illust-area');
+
+  function updateParallax() {
+    const scrollY = window.pageYOffset;
+
+    parallaxElements.forEach(el => {
+      const rect = el.getBoundingClientRect();
+      const centerY = rect.top + rect.height / 2;
+      const viewCenter = window.innerHeight / 2;
+      const diff = (centerY - viewCenter) * 0.05;
+      el.style.transform = `translateY(${diff}px)`;
+    });
+
+    requestAnimationFrame(updateParallax);
+  }
+
+  // Only enable parallax on non-reduced-motion
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    requestAnimationFrame(updateParallax);
+  }
+})();
+
+/* Mobile Navigation */
+function closeMobileNav() {
+  document.getElementById('mobileNav').classList.remove('open');
+}
+
+document.getElementById('hamburgerBtn').addEventListener('click', () => {
+  document.getElementById('mobileNav').classList.add('open');
+});
+
+document.getElementById('closeNav').addEventListener('click', closeMobileNav);
+
+/* Smooth scroll for anchor links */
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    const href = this.getAttribute('href');
+    if (href === '#') return;
+    e.preventDefault();
+    const target = document.querySelector(href);
+    if (target) {
+      const headerHeight = document.getElementById('siteHeader').offsetHeight;
+      const top = target.getBoundingClientRect().top + window.pageYOffset - headerHeight - 20;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  });
+});
+
+/* ==============================
+   Wave Text Animation (紙飛行機が文字を置いていく)
+   ============================== */
+(function() {
+  const container = document.getElementById('waveTextContainer');
+  const plane = document.getElementById('planeCursor');
+  if (!container || !plane) return;
+
+  // Reduced motion → show all immediately
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    buildCharsStatic();
+    return;
+  }
+
+  const text = '自分の中にある答えを、一冊の絵本にする時間。';
+  const allChars = [];
+  let hasPlayed = false;
+
+  function getLayout() {
+    const w = container.offsetWidth;
+    const h = container.offsetHeight;
+    const isMobile = w < 500;
+    const fontSize = isMobile ? Math.max(12, w * 0.035) : Math.min(w * 0.02, 20);
+    const charSpacing = fontSize * (isMobile ? 1.25 : 1.5);
+
+    const totalWidth = text.length * charSpacing;
+    const startX = (w - totalWidth) / 2;
+    const centerY = h * 0.5;
+    // Wave amplitude and frequency
+    const amp = h * 0.22;
+    const freq = 2.0; // two full waves across the text
+
+    const chars = [];
+    for (let i = 0; i < text.length; i++) {
+      const progress = i / (text.length - 1);
+      const x = startX + i * charSpacing;
+      // Sinusoidal wave
+      const waveY = -Math.sin(progress * Math.PI * freq) * amp;
+      const y = centerY + waveY;
+      // Rotation follows the wave slope
+      const slope = -Math.cos(progress * Math.PI * freq) * amp * Math.PI * freq / totalWidth;
+      const angle = Math.atan(slope) * (180 / Math.PI) * 0.6;
+      chars.push({ char: text[i], x, y, angle });
+    }
+    return chars;
+  }
+
+  function buildCharsStatic() {
+    const layout = getLayout();
+    layout.forEach(item => {
+      const span = document.createElement('span');
+      span.className = 'wave-char revealed';
+      span.textContent = item.char;
+      span.style.left = item.x + 'px';
+      span.style.top = item.y + 'px';
+      span.style.transform = 'rotate(' + item.angle + 'deg)';
+      container.appendChild(span);
+    });
+  }
+
+  function buildChars() {
+    container.querySelectorAll('.wave-char, .plane-trail').forEach(el => el.remove());
+    allChars.length = 0;
+
+    const layout = getLayout();
+    layout.forEach((item, i) => {
+      const span = document.createElement('span');
+      span.className = 'wave-char';
+      span.textContent = item.char;
+      span.style.left = item.x + 'px';
+      span.style.top = item.y + 'px';
+      span.style.transform = 'rotate(' + item.angle + 'deg)';
+      container.appendChild(span);
+      allChars.push({ el: span, x: item.x, y: item.y, angle: item.angle });
+    });
+  }
+
+  function animatePlane() {
+    if (hasPlayed) return;
+    hasPlayed = true;
+
+    const totalChars = allChars.length;
+    const charDelay = 100; // ms per character
+    const planeSizeW = plane.offsetWidth || 80;
+    const planeSizeH = plane.offsetHeight || 54;
+
+    plane.style.opacity = '1';
+
+    allChars.forEach((item, i) => {
+      setTimeout(() => {
+        // Move plane to this character position
+        const px = item.x - planeSizeW * 0.2;
+        const py = item.y - planeSizeH * 0.7;
+
+        // Angle plane in direction of travel
+        let planeAngle = item.angle;
+        if (i < totalChars - 1) {
+          const next = allChars[Math.min(i + 1, totalChars - 1)];
+          planeAngle = Math.atan2(next.y - item.y, next.x - item.x) * (180 / Math.PI);
+        }
+
+        plane.style.transition = 'left 0.08s linear, top 0.08s linear, transform 0.08s linear';
+        plane.style.left = px + 'px';
+        plane.style.top = py + 'px';
+        plane.style.transform = 'rotate(' + planeAngle + 'deg)';
+
+        // Reveal the character
+        item.el.classList.add('revealed');
+
+        // Drop a small sparkle
+        const dot = document.createElement('span');
+        dot.className = 'plane-trail';
+        dot.style.left = (item.x + 6) + 'px';
+        dot.style.top = (item.y + 10) + 'px';
+        dot.style.opacity = '0.5';
+        container.appendChild(dot);
+        setTimeout(() => {
+          dot.style.transition = 'opacity 1.2s ease';
+          dot.style.opacity = '0';
+        }, 50);
+        setTimeout(() => dot.remove(), 1400);
+
+        // After last char, fly plane away
+        if (i === totalChars - 1) {
+          setTimeout(() => {
+            plane.style.transition = 'left 0.8s ease-in, top 0.8s ease-in, opacity 0.8s ease-in';
+            plane.style.left = (container.offsetWidth + 50) + 'px';
+            plane.style.top = '-40px';
+            plane.style.opacity = '0';
+          }, 300);
+        }
+      }, i * charDelay);
+    });
+  }
+
+  // Build on load
+  buildChars();
+
+  // Observe and trigger animation when scrolled into view
+  if ('IntersectionObserver' in window) {
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !hasPlayed) {
+          animatePlane();
+        }
+      });
+    }, { threshold: 0.4 });
+    obs.observe(container);
+  } else {
+    buildCharsStatic();
+  }
+
+  // Recompute layout on resize
+  let resizeTimer;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+      if (hasPlayed) {
+        container.querySelectorAll('.wave-char, .plane-trail').forEach(el => el.remove());
+        allChars.length = 0;
+        buildCharsStatic();
+      } else {
+        buildChars();
+      }
+    }, 250);
+  });
+})();
+
+/* ── Book-open animation on page load ── */
+(function() {
+  const hero = document.getElementById('hero');
+  if (!hero) return;
+  /* prefers-reduced-motion → skip entirely */
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    hero.classList.add('book-opened', 'book-done');
+    return;
+  }
+  /* Brief pause, then open */
+  setTimeout(function() {
+    hero.classList.add('book-opened');
+    /* After animation finishes (1.6s transition), remove covers from DOM */
+    setTimeout(function() {
+      hero.classList.add('book-done');
+    }, 1800);
+  }, 600);
+})();
+</script>
+
+</body>
+</html>

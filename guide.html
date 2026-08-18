@@ -1,0 +1,2081 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>エホンリウムガイド養成講座｜エホンリウム</title>
+<meta name="description" content="わたしの物語を、誰かの一歩につながる仕事へ。エホンリウム体験会を開催する「エホンリウムガイド」養成講座。オンライン全1回・2時間。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500;600&family=Zen+Maru+Gothic:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+/* ==============================
+   CSS Custom Properties
+   ============================== */
+:root {
+  --bg-cream: #FDF8F0;
+  --bg-warm: #FAF3E8;
+  --green-leaf: #7BAF52;
+  --green-moss: #8B9E6B;
+  --green-mint: #8ECFC0;
+  --blue-sky: #B5D8E8;
+  --yellow-hope: #F0D86E;
+  --coral-warm: #E8A5A0;
+  --lavender: #C4B4D8;
+  --brown-text: #51463F;
+  --brown-light: #7A6E64;
+  --brown-pale: #A89888;
+  --pink-petal: #F2D5D0;
+  --font-serif: 'Noto Serif JP', 'Yu Mincho', '游明朝', serif;
+  --font-round: 'Zen Maru Gothic', 'Rounded Mplus 1c', sans-serif;
+}
+
+/* ==============================
+   Reset & Base
+   ============================== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-round);
+  font-weight: 300;
+  color: var(--brown-text);
+  background-color: var(--bg-cream);
+  line-height: 2;
+  letter-spacing: 0.08em;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+.br-mobile { display: none; }
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul { list-style: none; }
+
+/* ==============================
+   Typography
+   ============================== */
+.serif { font-family: var(--font-serif); }
+
+h2, h3 {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  line-height: 2.2;
+}
+
+/* ==============================
+   Scroll Animation
+   ============================== */
+.fade-in {
+  opacity: 0;
+  transform: translateY(25px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.fade-in-left {
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+.fade-in-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+.fade-in-right {
+  opacity: 0;
+  transform: translateX(30px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+.fade-in-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+.fade-in-slow {
+  opacity: 0;
+  transition: opacity 1.8s ease;
+}
+.fade-in-slow.visible {
+  opacity: 1;
+}
+
+/* Stagger delays */
+.delay-1 { transition-delay: 0.15s; }
+.delay-2 { transition-delay: 0.3s; }
+.delay-3 { transition-delay: 0.45s; }
+.delay-4 { transition-delay: 0.6s; }
+.delay-5 { transition-delay: 0.75s; }
+
+/* ==============================
+   CSS Animations (decorative)
+   ============================== */
+@keyframes sway {
+  0%, 100% { transform: rotate(-2deg); }
+  50% { transform: rotate(2deg); }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+@keyframes drift {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  25% { transform: translate(4px, -6px) rotate(1deg); }
+  75% { transform: translate(-3px, -3px) rotate(-1deg); }
+}
+@keyframes gentleRotate {
+  0%, 100% { transform: rotate(-1deg); }
+  50% { transform: rotate(1deg); }
+}
+@keyframes paperPlane {
+  0%, 100% { transform: translate(0, 0) rotate(-5deg); }
+  30% { transform: translate(6px, -8px) rotate(-3deg); }
+  60% { transform: translate(-2px, -4px) rotate(-7deg); }
+}
+@keyframes shimmer {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.7; }
+}
+
+/* ==============================
+   SVG Decorations
+   ============================== */
+.deco-leaf {
+  position: absolute;
+  pointer-events: none;
+  animation: sway 6s ease-in-out infinite;
+}
+.deco-leaf-2 {
+  position: absolute;
+  pointer-events: none;
+  animation: drift 8s ease-in-out infinite;
+}
+.deco-float {
+  animation: float 5s ease-in-out infinite;
+}
+
+/* ==============================
+   Header
+   ============================== */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background 0.5s ease, padding 0.3s ease;
+  background: rgba(253, 248, 240, 0.6);
+  backdrop-filter: blur(4px);
+}
+.site-header.scrolled {
+  background: rgba(253, 248, 240, 0.92);
+  backdrop-filter: blur(8px);
+  padding: 12px 40px;
+  box-shadow: 0 1px 20px rgba(81, 70, 63, 0.05);
+}
+.site-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  color: var(--brown-text);
+}
+.site-logo-img {
+  height: 32px;
+  width: auto;
+}
+.site-nav {
+  display: flex;
+  gap: 32px;
+}
+.site-nav a {
+  font-family: var(--font-serif);
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  color: var(--brown-light);
+  transition: color 0.3s ease;
+  position: relative;
+}
+.site-nav a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--green-leaf);
+  transition: width 0.3s ease;
+}
+.site-nav a:hover { color: var(--brown-text); }
+.site-nav a:hover::after { width: 100%; }
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 5px;
+}
+.hamburger span {
+  display: block;
+  width: 22px;
+  height: 1.5px;
+  background: var(--brown-text);
+  transition: 0.3s ease;
+}
+
+/* ==============================
+   Hero / First View
+   ============================== */
+.hero {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+.hero-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: linear-gradient(
+    to bottom,
+    rgba(253, 248, 240, 0.25) 0%,
+    transparent 30%,
+    transparent 70%,
+    rgba(253, 248, 240, 0.15) 100%
+  );
+}
+.hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 50%;
+  filter: brightness(0.95) saturate(0.88);
+}
+.hero-content {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 0 6vw;
+}
+.hero-main-copy {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  font-family: var(--font-serif);
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  line-height: 2.2;
+  color: var(--brown-text);
+  position: absolute;
+  top: 12vh;
+  left: 32%;
+  transform: translateX(-50%);
+  text-shadow:
+    0 0 20px rgba(253, 248, 240, 1),
+    0 0 40px rgba(253, 248, 240, 0.8),
+    0 0 60px rgba(253, 248, 240, 0.5);
+}
+.hero-sub-area {
+  position: absolute;
+  bottom: 6vh;
+  right: 4vw;
+  left: auto;
+  max-width: 440px;
+  background: rgba(253, 248, 240, 0.82);
+  padding: 28px 32px;
+  border-radius: 16px;
+  backdrop-filter: blur(6px);
+}
+.hero-sub-copy {
+  font-family: var(--font-serif);
+  font-size: clamp(0.8rem, 1.1vw, 0.95rem);
+  line-height: 2.2;
+  color: var(--brown-text);
+  margin-bottom: 12px;
+}
+.hero-info {
+  font-size: 0.78rem;
+  color: var(--brown-light);
+  margin-bottom: 8px;
+  letter-spacing: 0.08em;
+}
+.hero-note {
+  font-size: 0.72rem;
+  color: var(--brown-pale);
+  margin-bottom: 20px;
+}
+.hero-paper-plane {
+  position: absolute;
+  right: 12vw;
+  top: 14vh;
+  width: clamp(50px, 6vw, 80px);
+  animation: paperPlane 6s ease-in-out infinite;
+  z-index: 11;
+  opacity: 0.85;
+}
+
+/* CTA Buttons */
+.btn-cta {
+  display: inline-block;
+  font-family: var(--font-serif);
+  font-size: 0.82rem;
+  letter-spacing: 0.12em;
+  padding: 14px 36px;
+  border-radius: 50px;
+  transition: all 0.4s ease;
+  position: relative;
+}
+.btn-coral {
+  background: var(--coral-warm);
+  color: #fff;
+  border: none;
+}
+.btn-coral:hover {
+  background: #D4918C;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(232, 165, 160, 0.3);
+}
+.btn-lavender {
+  background: transparent;
+  color: var(--brown-light);
+  border: 1px solid var(--brown-pale);
+}
+.btn-lavender:hover {
+  border-color: var(--lavender);
+  color: var(--brown-text);
+}
+.btn-green-outline {
+  background: transparent;
+  color: var(--green-moss);
+  border: 1px solid var(--green-moss);
+}
+.btn-green-outline:hover {
+  background: rgba(123, 175, 82, 0.08);
+  color: var(--green-leaf);
+}
+
+/* ==============================
+   Book-spread Layout
+   ============================== */
+.book-spread {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  padding: 100px 0;
+  position: relative;
+  overflow: hidden;
+}
+.book-spread .section-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 6vw;
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 5vw;
+}
+.book-spread .illust-side {
+  flex: 0 0 45%;
+  max-width: 440px;
+}
+.book-spread .illust-side img {
+  width: 100%;
+  opacity: 0.88;
+  filter: saturate(0.85) brightness(1.03);
+}
+.book-spread .text-side {
+  flex: 1;
+}
+.book-spread h2 {
+  font-size: clamp(0.95rem, 1.4vw, 1.15rem);
+  margin-bottom: 28px;
+  line-height: 2.4;
+}
+.book-spread .book-text {
+  font-size: 0.85rem;
+  line-height: 2.4;
+  color: var(--brown-light);
+}
+.book-spread .book-text p {
+  margin-bottom: 20px;
+}
+
+/* Reverse layout variant */
+.book-spread.reverse .section-inner {
+  flex-direction: row-reverse;
+}
+
+/* Centered layout variant */
+.book-spread.centered .section-inner {
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+}
+.book-spread.centered .illust-side {
+  flex: none;
+  max-width: 320px;
+  margin-bottom: 40px;
+}
+
+/* ==============================
+   Section Base
+   ============================== */
+.section {
+  position: relative;
+  padding: 120px 0;
+  overflow: hidden;
+}
+.section-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 6vw;
+  position: relative;
+}
+
+/* ==============================
+   02: こんな方へ
+   ============================== */
+.sec-target h2 {
+  font-size: clamp(0.95rem, 1.4vw, 1.15rem);
+  margin-bottom: 32px;
+  line-height: 2.4;
+}
+.target-list li {
+  font-size: 0.88rem;
+  line-height: 2.4;
+  padding: 8px 0 8px 28px;
+  position: relative;
+  color: var(--brown-light);
+}
+.target-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 18px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(123, 175, 82, 0.35);
+}
+.target-closing {
+  font-family: var(--font-serif);
+  font-size: 0.92rem;
+  line-height: 2.4;
+  color: var(--brown-text);
+  margin-top: 36px;
+}
+
+/* ==============================
+   03: エホンリウムガイドとは
+   ============================== */
+.about-guide-points {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin-top: 28px;
+}
+.about-point {
+  flex: 1;
+  min-width: 160px;
+  padding: 20px;
+  background: rgba(123, 175, 82, 0.05);
+  border-radius: 12px;
+  text-align: center;
+}
+.about-point-icon {
+  font-size: 1.4rem;
+  margin-bottom: 8px;
+}
+.about-point h4 {
+  font-family: var(--font-serif);
+  font-size: 0.82rem;
+  font-weight: 400;
+  margin-bottom: 4px;
+  color: var(--brown-text);
+}
+.about-point p {
+  font-size: 0.75rem;
+  color: var(--brown-light);
+  line-height: 1.8;
+}
+
+/* ==============================
+   04: 養成講座で学ぶこと
+   ============================== */
+.curriculum-section {
+  padding: 100px 0 80px;
+}
+.curriculum-section h2 {
+  font-size: clamp(0.95rem, 1.4vw, 1.15rem);
+  text-align: center;
+  margin-bottom: 50px;
+  line-height: 2.4;
+}
+.curriculum-list {
+  max-width: 560px;
+  margin: 0 auto;
+}
+.curriculum-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  margin-bottom: 28px;
+  position: relative;
+}
+.curriculum-num {
+  font-family: var(--font-serif);
+  font-size: 0.75rem;
+  color: #fff;
+  background: var(--green-leaf);
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2px;
+}
+.curriculum-content h4 {
+  font-family: var(--font-serif);
+  font-size: 0.92rem;
+  font-weight: 400;
+  margin-bottom: 2px;
+  color: var(--brown-text);
+}
+.curriculum-content p {
+  font-size: 0.82rem;
+  color: var(--brown-light);
+  line-height: 2;
+}
+.curriculum-line {
+  position: absolute;
+  left: 16px;
+  top: 38px;
+  bottom: -14px;
+  width: 1px;
+  background: linear-gradient(to bottom, rgba(123,175,82,0.4), transparent);
+}
+.curriculum-item:last-child .curriculum-line { display: none; }
+.curriculum-note {
+  text-align: center;
+  font-size: 0.75rem;
+  color: var(--brown-pale);
+  margin-top: 20px;
+}
+
+/* ==============================
+   05: 修了後に得られるもの
+   ============================== */
+.benefit-list {
+  max-width: 520px;
+}
+.benefit-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+.benefit-icon {
+  font-size: 0.9rem;
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+.benefit-item h4 {
+  font-family: var(--font-serif);
+  font-size: 0.88rem;
+  font-weight: 400;
+  color: var(--brown-text);
+  line-height: 2;
+}
+
+/* ==============================
+   06: 修了後の活動イメージ
+   ============================== */
+.activity-list li {
+  font-size: 0.85rem;
+  line-height: 2.4;
+  padding: 6px 0 6px 24px;
+  position: relative;
+  color: var(--brown-light);
+}
+.activity-list li::before {
+  content: '✦';
+  position: absolute;
+  left: 0;
+  top: 6px;
+  font-size: 0.6rem;
+  color: var(--green-leaf);
+  opacity: 0.6;
+}
+
+/* ==============================
+   07: 収益の仕組み
+   ============================== */
+.revenue-section {
+  padding: 80px 0 100px;
+}
+.revenue-section h2 {
+  font-size: clamp(0.95rem, 1.4vw, 1.15rem);
+  text-align: center;
+  margin-bottom: 16px;
+}
+.revenue-intro {
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--brown-light);
+  line-height: 2.2;
+  margin-bottom: 40px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.revenue-example {
+  max-width: 520px;
+  margin: 0 auto;
+  padding: 32px;
+  background: rgba(123, 175, 82, 0.04);
+  border-radius: 16px;
+  border: 1px solid rgba(123, 175, 82, 0.1);
+}
+.revenue-example-title {
+  font-family: var(--font-serif);
+  font-size: 0.82rem;
+  color: var(--green-moss);
+  margin-bottom: 20px;
+  text-align: center;
+  letter-spacing: 0.08em;
+}
+.revenue-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.revenue-table tr {
+  border-bottom: 1px solid rgba(139, 158, 107, 0.1);
+}
+.revenue-table th {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: 0.78rem;
+  color: var(--green-moss);
+  padding: 12px 16px 12px 0;
+  text-align: left;
+  vertical-align: top;
+  white-space: nowrap;
+}
+.revenue-table td {
+  font-size: 0.82rem;
+  color: var(--brown-light);
+  padding: 12px 0;
+  line-height: 1.9;
+  text-align: right;
+}
+.revenue-table .highlight td {
+  font-size: 0.92rem;
+  color: var(--brown-text);
+  font-weight: 500;
+}
+.revenue-notes {
+  font-size: 0.72rem;
+  color: var(--brown-pale);
+  margin-top: 20px;
+  text-align: center;
+  line-height: 2;
+}
+
+/* ==============================
+   08: 受講料・開催概要
+   ============================== */
+.overview-table {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 520px;
+}
+.overview-table tr {
+  border-bottom: 1px solid rgba(139, 158, 107, 0.1);
+}
+.overview-table th {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: 0.78rem;
+  color: var(--green-moss);
+  padding: 14px 20px 14px 0;
+  text-align: left;
+  vertical-align: top;
+  white-space: nowrap;
+  width: 130px;
+}
+.overview-table td {
+  font-size: 0.82rem;
+  color: var(--brown-light);
+  padding: 14px 0;
+  line-height: 1.9;
+}
+
+/* ==============================
+   08b: システム利用料プラン
+   ============================== */
+.plan-table-wrap {
+  margin: 0 auto;
+  max-width: 680px;
+}
+.plan-table-wrap h3 {
+  font-family: var(--font-serif);
+  font-size: clamp(0.88rem, 1.2vw, 1rem);
+  font-weight: 500;
+  color: var(--brown-text);
+  text-align: center;
+  margin-bottom: 8px;
+  letter-spacing: 0.1em;
+}
+.plan-table-note {
+  text-align: center;
+  font-size: 0.75rem;
+  color: var(--brown-pale);
+  margin-bottom: 24px;
+  line-height: 1.7;
+}
+.plan-table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(139, 158, 107, 0.08);
+}
+.plan-table thead th {
+  background: var(--green-moss);
+  color: #fff;
+  font-family: var(--font-serif);
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  padding: 14px 12px;
+  text-align: center;
+  border-right: 1px solid rgba(255,255,255,0.2);
+}
+.plan-table thead th:last-child { border-right: none; }
+.plan-table thead th:first-child {
+  background: rgba(139, 158, 107, 0.15);
+  color: var(--brown-text);
+  font-size: 0.78rem;
+}
+.plan-table tbody td {
+  padding: 16px 12px;
+  text-align: center;
+  font-size: 0.82rem;
+  color: var(--brown-text);
+  border-bottom: 1px solid rgba(139, 158, 107, 0.1);
+  border-right: 1px solid rgba(139, 158, 107, 0.08);
+  background: rgba(253, 248, 240, 0.5);
+}
+.plan-table tbody td:last-child { border-right: none; }
+.plan-table tbody td:first-child {
+  font-family: var(--font-serif);
+  font-size: 0.78rem;
+  color: var(--green-moss);
+  font-weight: 400;
+  text-align: left;
+  padding-left: 20px;
+  white-space: nowrap;
+  background: rgba(139, 158, 107, 0.04);
+}
+.plan-table .plan-price {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--brown-text);
+}
+.plan-table .plan-price small {
+  font-size: 0.7rem;
+  font-weight: 400;
+}
+.plan-table .plan-for {
+  font-size: 0.72rem;
+  color: var(--brown-pale);
+  line-height: 1.6;
+}
+.plan-systems-note {
+  text-align: center;
+  font-size: 0.72rem;
+  color: var(--brown-pale);
+  margin-top: 16px;
+  line-height: 1.7;
+}
+
+/* ==============================
+   09: 活動開始までの流れ
+   ============================== */
+.flow-section {
+  padding: 80px 0 100px;
+}
+.flow-section h2 {
+  font-size: clamp(0.95rem, 1.4vw, 1.15rem);
+  text-align: center;
+  margin-bottom: 50px;
+}
+.flow-steps-v {
+  max-width: 560px;
+  margin: 0 auto;
+}
+.flow-v-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  margin-bottom: 28px;
+  position: relative;
+}
+.flow-v-num {
+  font-family: var(--font-serif);
+  font-size: 0.75rem;
+  color: #fff;
+  background: var(--green-leaf);
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2px;
+}
+.flow-v-content h4 {
+  font-family: var(--font-serif);
+  font-size: 0.92rem;
+  font-weight: 400;
+  margin-bottom: 2px;
+  color: var(--brown-text);
+}
+.flow-v-content p {
+  font-size: 0.82rem;
+  color: var(--brown-light);
+  line-height: 2;
+}
+.flow-v-line {
+  position: absolute;
+  left: 16px;
+  top: 38px;
+  bottom: -14px;
+  width: 1px;
+  background: linear-gradient(to bottom, rgba(123,175,82,0.4), transparent);
+}
+.flow-v-item:last-child .flow-v-line { display: none; }
+
+/* ==============================
+   10: サポート
+   ============================== */
+.support-list li {
+  font-size: 0.85rem;
+  line-height: 2.4;
+  padding: 4px 0 4px 24px;
+  position: relative;
+  color: var(--brown-light);
+}
+.support-list li::before {
+  content: '';
+  position: absolute;
+  left: 4px;
+  top: 16px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(123, 175, 82, 0.25);
+}
+
+/* ==============================
+   11: トレーナーへの道
+   ============================== */
+.trainer-badge {
+  display: inline-block;
+  font-family: var(--font-serif);
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  color: var(--lavender);
+  border: 1px solid var(--lavender);
+  padding: 2px 12px;
+  border-radius: 20px;
+  margin-bottom: 8px;
+}
+.trainer-req {
+  margin-top: 24px;
+  padding: 20px 24px;
+  background: rgba(196, 180, 216, 0.06);
+  border-radius: 12px;
+  border: 1px solid rgba(196, 180, 216, 0.15);
+}
+.trainer-req h4 {
+  font-family: var(--font-serif);
+  font-size: 0.82rem;
+  font-weight: 400;
+  color: var(--brown-text);
+  margin-bottom: 8px;
+}
+.trainer-req p {
+  font-size: 0.82rem;
+  color: var(--brown-light);
+  line-height: 2;
+}
+.trainer-abilities {
+  margin-top: 24px;
+}
+.trainer-abilities li {
+  font-size: 0.82rem;
+  line-height: 2.2;
+  padding: 3px 0 3px 22px;
+  position: relative;
+  color: var(--brown-light);
+}
+.trainer-abilities li::before {
+  content: '◇';
+  position: absolute;
+  left: 0;
+  top: 3px;
+  font-size: 0.6rem;
+  color: var(--lavender);
+}
+
+/* ==============================
+   12: よくある質問
+   ============================== */
+.sec-faq {
+  padding: 80px 0 100px;
+}
+.sec-faq h2 {
+  font-size: clamp(0.95rem, 1.3vw, 1.1rem);
+  margin-bottom: 40px;
+}
+.faq-layout {
+  display: flex;
+  gap: 5vw;
+  align-items: flex-start;
+}
+.faq-illust {
+  flex: 0 0 28%;
+  max-width: 260px;
+  padding-top: 20px;
+}
+.faq-illust img {
+  width: 100%;
+}
+.faq-content {
+  flex: 1;
+}
+.faq-list {
+  max-width: 700px;
+}
+.faq-item {
+  margin-bottom: 28px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid rgba(139, 158, 107, 0.1);
+}
+.faq-q {
+  font-family: var(--font-serif);
+  font-size: 0.88rem;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+.faq-q-mark {
+  font-size: 0.8rem;
+  color: var(--green-leaf);
+  flex-shrink: 0;
+  font-weight: 500;
+}
+.faq-a {
+  font-size: 0.82rem;
+  color: var(--brown-light);
+  line-height: 2.1;
+  padding-left: 28px;
+}
+
+/* ==============================
+   13: 最終CTA
+   ============================== */
+.sec-final-cta {
+  padding: 100px 0 80px;
+  text-align: center;
+  position: relative;
+}
+.sec-final-cta .paper-plane-deco {
+  width: clamp(140px, 18vw, 220px);
+  margin: 0 auto 40px;
+  animation: paperPlane 6s ease-in-out infinite;
+}
+.sec-final-cta h2 {
+  font-size: clamp(1rem, 1.4vw, 1.15rem);
+  margin-bottom: 24px;
+  line-height: 2.4;
+}
+.sec-final-cta .body-text {
+  font-size: 0.85rem;
+  line-height: 2.4;
+  margin-bottom: 36px;
+  max-width: 520px;
+  margin-left: auto;
+  margin-right: auto;
+  color: var(--brown-light);
+}
+.cta-info {
+  font-size: 0.75rem;
+  color: var(--brown-pale);
+  margin-top: 16px;
+}
+.cta-note {
+  font-size: 0.72rem;
+  color: var(--brown-pale);
+  margin-top: 8px;
+}
+
+/* ==============================
+   Footer
+   ============================== */
+.site-footer {
+  padding: 60px 6vw 40px;
+  text-align: center;
+  position: relative;
+}
+.footer-logo {
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  letter-spacing: 0.12em;
+  margin-bottom: 20px;
+  color: var(--brown-text);
+}
+.footer-nav {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+.footer-nav a {
+  font-size: 0.72rem;
+  color: var(--brown-pale);
+  letter-spacing: 0.08em;
+  transition: color 0.3s ease;
+}
+.footer-nav a:hover {
+  color: var(--brown-text);
+}
+.footer-copy {
+  font-size: 0.65rem;
+  color: var(--brown-pale);
+  letter-spacing: 0.05em;
+}
+
+/* ==============================
+   Scattered Decorations
+   ============================== */
+.section-deco {
+  position: relative;
+  height: 60px;
+  overflow: visible;
+  pointer-events: none;
+}
+.section-deco .deco-item {
+  position: absolute;
+  opacity: 0;
+  transition: opacity 1.2s ease, transform 1.2s ease;
+  transform: translateY(10px);
+}
+.section-deco .deco-item.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.deco-tiny-leaf {
+  width: 18px;
+  height: 12px;
+  background: var(--green-leaf);
+  opacity: 0.35;
+  border-radius: 0 80% 0 80%;
+  display: inline-block;
+}
+.deco-tiny-leaf.leaf-2 {
+  background: #A8C97F;
+  opacity: 0.25;
+  transform: rotate(45deg);
+  width: 14px;
+  height: 9px;
+}
+.deco-tiny-leaf.leaf-3 {
+  background: #C9D99A;
+  opacity: 0.3;
+  transform: rotate(-30deg);
+  width: 11px;
+  height: 7px;
+}
+.deco-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--coral-warm);
+  opacity: 0.3;
+  display: inline-block;
+}
+.deco-dot.dot-green {
+  background: var(--green-leaf);
+  opacity: 0.2;
+  width: 4px;
+  height: 4px;
+}
+.deco-sparkle {
+  width: 8px;
+  height: 8px;
+  position: relative;
+  display: inline-block;
+}
+.deco-sparkle::before,
+.deco-sparkle::after {
+  content: '';
+  position: absolute;
+  background: var(--brown-pale);
+  border-radius: 2px;
+}
+.deco-sparkle::before {
+  width: 2px;
+  height: 8px;
+  top: 0;
+  left: 3px;
+}
+.deco-sparkle::after {
+  width: 8px;
+  height: 2px;
+  top: 3px;
+  left: 0;
+}
+
+@keyframes decoFloat1 {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-6px) rotate(8deg); }
+}
+@keyframes decoFloat2 {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-4px) rotate(-12deg); }
+}
+@keyframes decoDrift {
+  0%, 100% { transform: translateX(0) translateY(0); }
+  33% { transform: translateX(3px) translateY(-4px); }
+  66% { transform: translateX(-2px) translateY(-2px); }
+}
+.section-deco .deco-item.visible .deco-tiny-leaf {
+  animation: decoFloat1 5s ease-in-out infinite;
+}
+.section-deco .deco-item.visible .deco-tiny-leaf.leaf-2 {
+  animation: decoFloat2 6s ease-in-out infinite;
+}
+.section-deco .deco-item.visible .deco-tiny-leaf.leaf-3 {
+  animation: decoDrift 7s ease-in-out infinite;
+}
+.section-deco .deco-item.visible .deco-dot {
+  animation: decoFloat2 4s ease-in-out infinite;
+}
+.section-deco .deco-item.visible .deco-sparkle {
+  animation: decoDrift 5s ease-in-out infinite;
+}
+
+/* Bird decoration */
+.deco-bird {
+  position: relative;
+  height: 120px;
+  overflow: visible;
+  pointer-events: none;
+}
+.deco-bird-wrap {
+  position: absolute;
+  opacity: 0;
+  transition: opacity 1.4s ease, transform 1.4s ease;
+  transform: translateX(-15px) translateY(8px);
+}
+.deco-bird img {
+  width: 180px;
+  opacity: 0.88;
+  filter: saturate(0.85) brightness(1.03);
+}
+.deco-bird-wrap.visible {
+  opacity: 1;
+  transform: translateX(0) translateY(0);
+  animation: birdDrift 9s ease-in-out infinite;
+}
+@keyframes birdDrift {
+  0%, 100% { transform: translateX(0) translateY(0) rotate(0deg); }
+  25% { transform: translateX(6px) translateY(-5px) rotate(1deg); }
+  50% { transform: translateX(10px) translateY(-8px) rotate(-1deg); }
+  75% { transform: translateX(4px) translateY(-3px) rotate(0.5deg); }
+}
+
+/* ==============================
+   Feature labels (book-spread)
+   ============================== */
+.book-spread .feature-label {
+  display: inline-block;
+  font-family: var(--font-serif);
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  color: var(--green-leaf);
+  border: 1px solid var(--green-leaf);
+  padding: 2px 10px;
+  border-radius: 20px;
+  margin-bottom: 6px;
+}
+.book-spread h3 {
+  font-size: 0.9rem;
+  color: var(--brown-text);
+  margin-bottom: 6px;
+}
+
+/* ==============================
+   Responsive
+   ============================== */
+@media (max-width: 768px) {
+  .site-nav { display: none; }
+  .hamburger { display: flex; }
+
+  .mobile-nav {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(253, 248, 240, 0.97);
+    z-index: 99;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+  }
+  .mobile-nav.open { display: flex; }
+  .mobile-nav a {
+    font-family: var(--font-serif);
+    font-size: 1rem;
+    letter-spacing: 0.1em;
+    color: var(--brown-text);
+  }
+  .mobile-nav .close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--brown-text);
+    cursor: pointer;
+  }
+
+  .hero-main-copy {
+    font-size: clamp(1.1rem, 4vw, 1.4rem);
+    top: 12vh;
+    left: 5vw;
+    transform: none;
+  }
+  .hero-sub-area {
+    bottom: 6vh;
+    left: 5vw;
+    right: 5vw;
+    max-width: none;
+    background: rgba(253, 248, 240, 0.88);
+    padding: 20px 24px;
+    border-radius: 12px;
+    backdrop-filter: blur(4px);
+  }
+  .hero-bg img {
+    object-position: 65% 50%;
+  }
+  .hero-paper-plane {
+    right: 5vw;
+    top: 10vh;
+    width: 40px;
+  }
+
+  .book-spread { min-height: auto; padding: 70px 0; }
+  .book-spread .section-inner {
+    flex-direction: column !important;
+  }
+  .book-spread .illust-side {
+    flex: none !important;
+    max-width: 280px !important;
+    margin: 0 auto 24px;
+    order: -1;
+  }
+  .book-spread .text-side { padding: 0 !important; }
+  .sec-target h2,
+  #guide-about h2,
+  #benefits h2,
+  #activity h2,
+  #support h2,
+  #apply h2 { text-align: center; }
+
+  .section { padding: 80px 0; }
+
+  .about-guide-points { flex-direction: column; align-items: center; }
+  .about-point { max-width: 300px; }
+
+  .faq-layout {
+    flex-direction: column;
+  }
+  .faq-illust {
+    flex: none;
+    max-width: 220px;
+    margin: 0 auto 24px;
+  }
+
+  .revenue-example { padding: 24px 20px; }
+
+  .section-deco { height: 40px; }
+  .deco-bird img { width: 130px; }
+  .deco-bird { height: 80px; }
+
+  .br-desktop { display: none; }
+  .br-mobile { display: inline; }
+}
+
+@media (max-width: 600px) {
+  html { font-size: 15px; }
+  .site-header { padding: 16px 20px; }
+  .site-header.scrolled { padding: 10px 20px; }
+  .section-inner { padding: 0 5vw; }
+}
+
+/* ==============================
+   Reduced Motion
+   ============================== */
+@media (prefers-reduced-motion: reduce) {
+  .fade-in, .fade-in-left, .fade-in-right, .fade-in-slow {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .deco-leaf, .deco-leaf-2, .deco-float,
+  .hero-paper-plane,
+  .sec-final-cta .paper-plane-deco,
+  .book-spread .illust-side img {
+    animation: none;
+  }
+  .section-deco .deco-item.visible .deco-tiny-leaf,
+  .section-deco .deco-item.visible .deco-dot,
+  .section-deco .deco-item.visible .deco-sparkle {
+    animation: none;
+  }
+  .deco-bird-wrap.visible { animation: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- ========== Header ========== -->
+<header class="site-header" id="siteHeader">
+  <a href="index.html" class="site-logo"><img src="ロゴ.png" alt="エホンリウム ロゴ" class="site-logo-img">エホンリウム</a>
+  <nav class="site-nav">
+    <a href="index.html">エホンリウムとは</a>
+    <a href="workshop.html">体験会</a>
+    <a href="guide.html">エホンリウムガイド<br><span style="font-size:0.65rem;color:var(--brown-pale);">（養成講座）</span></a>
+  </nav>
+  <button class="hamburger" id="hamburgerBtn" aria-label="メニュー">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<!-- Mobile Nav -->
+<div class="mobile-nav" id="mobileNav">
+  <button class="close-btn" id="closeNav" aria-label="閉じる">×</button>
+  <a href="index.html" onclick="closeMobileNav()">エホンリウムとは</a>
+  <a href="workshop.html" onclick="closeMobileNav()">体験会</a>
+  <a href="guide.html" onclick="closeMobileNav()">エホンリウムガイド（養成講座）</a>
+</div>
+
+
+<!-- ========== 01: Hero / ファーストビュー ========== -->
+<section class="hero" id="hero">
+  <div class="hero-bg">
+    <img src="参考画像５.png" alt="やさしい色彩の絵本の世界" loading="eager">
+  </div>
+  <img src="イラスト/８.png" alt="" class="hero-paper-plane" aria-hidden="true">
+  <div class="hero-content">
+    <h1 class="hero-main-copy fade-in-slow">わたしの物語を、<br>誰かの一歩につながる仕事へ。</h1>
+    <div class="hero-sub-area fade-in delay-2">
+      <p class="hero-sub-copy serif">
+        エホンリウムで感じた変化を、<br class="br-desktop">今度は誰かに届けたい方へ。<br class="br-desktop">
+        価値観カードと絵本づくりの体験会を開催する<br class="br-desktop">
+        「エホンリウムガイド」養成講座。
+      </p>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLScps3sHW0tsRKcsCWy_4JyRMFl2Z_eTFhvYKOvKWTzDq3i6YQ/viewform?usp=sharing" target="_blank" rel="noopener" class="btn-cta btn-coral">養成講座に申し込む</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ========== 02: こんな方へ ========== -->
+<section class="book-spread" id="target">
+  <div class="section-inner">
+    <div class="illust-side fade-in-right" style="max-width:380px;">
+      <img src="イラスト/16.png" alt="想いを届けるイメージ" loading="lazy" style="animation: gentleRotate 8s ease-in-out infinite;">
+    </div>
+    <div class="text-side sec-target">
+      <h2 class="fade-in">自分が受け取ったものを、<br>次の人へ渡してみませんか。</h2>
+      <ul class="target-list fade-in delay-1">
+        <li>人の話を聴くことが好き</li>
+        <li>自分の経験を誰かの役に立てたい</li>
+        <li>子育てと両立できる活動を始めたい</li>
+        <li>自宅やオンラインで自分のペースで始めたい</li>
+        <li>一から商品をつくることに不安がある</li>
+        <li>既存の講座やセッションに新しい体験を加えたい</li>
+        <li>自分のことをもう一歩深く知りたい</li>
+        <li>エホンリウムの輪を一緒に広げたい</li>
+      </ul>
+      <p class="target-closing fade-in delay-2">
+        エホンリウムガイドは、<br>
+        あなたの体験を、次の誰かに届ける仕事です。
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- deco: leaves -->
+<div class="section-deco" aria-hidden="true">
+  <div class="deco-item fade-in" style="left:15%; top:10px;">
+    <span class="deco-tiny-leaf"></span>
+  </div>
+  <div class="deco-item fade-in" style="left:19%; top:28px;">
+    <span class="deco-tiny-leaf leaf-2"></span>
+  </div>
+  <div class="deco-item fade-in" style="left:13%; top:20px;">
+    <span class="deco-dot dot-green"></span>
+  </div>
+</div>
+
+
+<!-- ========== 03: エホンリウムガイドとは ========== -->
+<section class="book-spread reverse" id="guide-about">
+  <div class="section-inner">
+    <div class="illust-side fade-in-left" style="max-width:400px;">
+      <img src="イラスト/20.png" alt="寄り添うガイドのイメージ" loading="lazy" style="animation: float 8s ease-in-out infinite;">
+    </div>
+    <div class="text-side">
+      <h2 class="fade-in">価値観と物語に寄り添う、<br>エホンリウムの案内役。</h2>
+      <div class="book-text fade-in delay-1">
+        <p>エホンリウムガイドは、<br>参加者が価値観カードと対話を通して<br>自分の想いを見つけ、<br>一冊の絵本にするまでの時間に寄り添う人です。</p>
+        <p>答えを教えたり、<br>人生を決めたりする役割ではありません。<br>参加者の言葉を受け止め、<br>自分自身の中にある答えや物語に気づけるよう、<br>安心して話せる場をつくります。</p>
+      </div>
+      <div class="about-guide-points fade-in delay-2">
+        <div class="about-point">
+          <p class="about-point-icon">🤝</p>
+          <h4>答えを教えない</h4>
+          <p>参加者自身が<br>気づく場をつくる</p>
+        </div>
+        <div class="about-point">
+          <p class="about-point-icon">🌱</p>
+          <h4>寄り添う存在</h4>
+          <p>対話と物語の時間を<br>一緒に歩く</p>
+        </div>
+        <div class="about-point">
+          <p class="about-point-icon">📖</p>
+          <h4>安心の場づくり</h4>
+          <p>心を開ける<br>空間をつくる</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ========== 04: 養成講座で学ぶこと ========== -->
+<section class="section curriculum-section" id="curriculum">
+  <div class="section-inner">
+    <h2 class="fade-in">養成講座で学ぶこと</h2>
+
+    <div class="curriculum-list">
+      <div class="curriculum-item fade-in delay-1">
+        <span class="curriculum-num">1</span>
+        <div class="curriculum-content">
+          <h4>エホンリウムの理念とガイドの役割</h4>
+        </div>
+        <span class="curriculum-line"></span>
+      </div>
+      <div class="curriculum-item fade-in delay-2">
+        <span class="curriculum-num">2</span>
+        <div class="curriculum-content">
+          <h4>体験会全体の進め方</h4>
+        </div>
+        <span class="curriculum-line"></span>
+      </div>
+      <div class="curriculum-item fade-in delay-1">
+        <span class="curriculum-num">3</span>
+        <div class="curriculum-content">
+          <h4>バリュービジョンゲームの回し方</h4>
+        </div>
+        <span class="curriculum-line"></span>
+      </div>
+      <div class="curriculum-item fade-in delay-2">
+        <span class="curriculum-num">4</span>
+        <div class="curriculum-content">
+          <h4>対話・問いかけ・傾聴の基本</h4>
+        </div>
+        <span class="curriculum-line"></span>
+      </div>
+      <div class="curriculum-item fade-in delay-1">
+        <span class="curriculum-num">5</span>
+        <div class="curriculum-content">
+          <h4>絵本作成システムの操作方法</h4>
+        </div>
+        <span class="curriculum-line"></span>
+      </div>
+      <div class="curriculum-item fade-in delay-2">
+        <span class="curriculum-num">6</span>
+        <div class="curriculum-content">
+          <h4>シェアタイムの進め方</h4>
+        </div>
+        <span class="curriculum-line"></span>
+      </div>
+      <div class="curriculum-item fade-in delay-1">
+        <span class="curriculum-num">7</span>
+        <div class="curriculum-content">
+          <h4>開催準備・料金設定・申込み対応</h4>
+        </div>
+        <span class="curriculum-line"></span>
+      </div>
+      <div class="curriculum-item fade-in delay-2">
+        <span class="curriculum-num">8</span>
+        <div class="curriculum-content">
+          <h4>開催時のルールと注意事項</h4>
+        </div>
+      </div>
+    </div>
+    <p class="curriculum-note fade-in">※講座内容は変更になる場合があります</p>
+  </div>
+</section>
+
+<!-- deco: sparkle + dot -->
+<div class="section-deco" aria-hidden="true">
+  <div class="deco-item fade-in" style="right:22%; top:12px;">
+    <span class="deco-sparkle"></span>
+  </div>
+  <div class="deco-item fade-in" style="right:18%; top:30px;">
+    <span class="deco-dot"></span>
+  </div>
+</div>
+
+
+<!-- ========== 05: 修了後に得られるもの ========== -->
+<section class="book-spread" id="benefits">
+  <div class="section-inner">
+    <div class="illust-side fade-in-right" style="max-width:380px;">
+      <img src="イラスト/29.png" alt="贈り物を受け取るイメージ" loading="lazy" style="animation: sway 10s ease-in-out infinite;">
+    </div>
+    <div class="text-side">
+      <h2 class="fade-in">修了後に得られるもの</h2>
+      <div class="benefit-list">
+        <div class="benefit-item fade-in delay-1">
+          <span class="benefit-icon">🎓</span>
+          <h4>エホンリウムガイドの認定資格・肩書き</h4>
+        </div>
+        <div class="benefit-item fade-in delay-1">
+          <span class="benefit-icon">🎤</span>
+          <h4>エホンリウム体験会を開催する権利</h4>
+        </div>
+        <div class="benefit-item fade-in delay-2">
+          <span class="benefit-icon">📖</span>
+          <h4>絵本作成システムの利用権</h4>
+        </div>
+        <div class="benefit-item fade-in delay-2">
+          <span class="benefit-icon">🃏</span>
+          <h4>バリュービジョンゲームのシステム利用権</h4>
+        </div>
+        <div class="benefit-item fade-in delay-3">
+          <span class="benefit-icon">📋</span>
+          <h4>進行用マニュアル・開催資料</h4>
+        </div>
+        <div class="benefit-item fade-in delay-3">
+          <span class="benefit-icon">💬</span>
+          <h4>月1回のオンライン勉強会<br><small style="font-size:0.8em; font-weight:400; color:var(--brown-light);">（公式LINEにて連絡）</small></h4>
+        </div>
+        <div class="benefit-item fade-in delay-4">
+          <span class="benefit-icon">🤝</span>
+          <h4>ガイド同士で学び合う機会</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ========== 06: 修了後の活動イメージ ========== -->
+<section class="book-spread reverse" id="activity">
+  <div class="section-inner">
+    <div class="illust-side fade-in-left" style="max-width:380px;">
+      <img src="イラスト/17.png" alt="自由に活動するイメージ" loading="lazy" style="animation: drift 9s ease-in-out infinite;">
+    </div>
+    <div class="text-side">
+      <h2 class="fade-in">暮らしに合わせて、<br>自分のペースで開催できます。</h2>
+      <div class="book-text fade-in delay-1">
+        <ul class="activity-list">
+          <li>自宅からオンラインで開催する</li>
+          <li>地域のママコミュニティで開催する</li>
+          <li>子育て支援施設と連携する</li>
+          <li>自分の講座やセッションに取り入れる</li>
+          <li>友人や知人に少人数で届ける</li>
+          <li>イベントで体験版を実施する</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- deco: leaf + sparkle -->
+<div class="section-deco" aria-hidden="true">
+  <div class="deco-item fade-in" style="right:28%; top:10px;">
+    <span class="deco-tiny-leaf"></span>
+  </div>
+  <div class="deco-item fade-in" style="right:24%; top:28px;">
+    <span class="deco-sparkle"></span>
+  </div>
+</div>
+
+
+<!-- ========== 07: 収益の仕組み ========== -->
+<section class="section revenue-section" id="revenue">
+  <div class="section-inner">
+    <h2 class="fade-in">小さく始めて、<br class="br-desktop">自分の活動として育てる。</h2>
+    <p class="revenue-intro fade-in delay-1">
+      エホンリウムガイドは、体験会の参加費を<br>自分で設定し、自分のペースで開催できます。<br>参加者1名につき絵本制作クーポン代500円を<br>差し引いた金額が、ガイドの売上になります。
+    </p>
+
+    <div class="revenue-example fade-in delay-2">
+      <p class="revenue-example-title">収益例</p>
+      <p style="text-align:center; font-size:0.78rem; color:var(--brown-light); margin-bottom:16px; line-height:1.8;">
+        参加費4,000円で、1回6名の体験会を<br class="br-desktop">月2回開催した場合
+      </p>
+      <table class="revenue-table">
+        <tr>
+          <th>売上</th>
+          <td>4,000円 × 6名 × 2回 ＝ 48,000円</td>
+        </tr>
+        <tr>
+          <th>絵本制作クーポン代</th>
+          <td>500円 × 6名 × 2回 ＝ 6,000円</td>
+        </tr>
+        <tr class="highlight">
+          <th>クーポン代差引後</th>
+          <td>42,000円</td>
+        </tr>
+        <tr>
+          <th>システム利用料</th>
+          <td>別途</td>
+        </tr>
+        <tr>
+          <th>その他経費</th>
+          <td>決済手数料・会場費等がある場合は別途</td>
+        </tr>
+      </table>
+    </div>
+    <p class="revenue-notes fade-in delay-3">
+      ※参加人数や開催回数を保証するものではありません。<br>
+      ※実際の収益は、集客状況や必要経費によって異なります。
+    </p>
+  </div>
+</section>
+
+
+<!-- ========== 08: 受講料・開催概要 ========== -->
+<section class="section" id="overview" style="padding-top:40px;">
+  <div class="section-inner">
+    <h2 class="fade-in" style="text-align:center; margin-bottom:40px; font-size:clamp(0.95rem, 1.4vw, 1.15rem);">受講料・開催概要</h2>
+
+    <table class="overview-table fade-in delay-1">
+      <tr><th>講座名</th><td>エホンリウムガイド養成講座</td></tr>
+      <tr><th>開催形式</th><td>オンライン</td></tr>
+      <tr><th>時間</th><td>全1回・2時間</td></tr>
+      <tr><th>受講料</th><td>28,000円（税込）</td></tr>
+      <tr><th>受講条件</th><td>体験会参加・絵本作成済み</td></tr>
+      <tr><th>認定資格</th><td>エホンリウムガイド</td></tr>
+      <tr><th>申込方法</th><td>Googleフォーム</td></tr>
+      <tr><th>修了後</th><td>システム利用料が別途必要（下記プラン参照）</td></tr>
+    </table>
+
+    <!-- システム利用料プラン表 -->
+    <div class="plan-table-wrap fade-in delay-2" style="margin-top: 48px;">
+      <h3>システム利用料（月額）</h3>
+      <p class="plan-table-note">
+        月額はサービス使用料です。プランに応じてクーポンが毎月付与されます。
+      </p>
+      <table class="plan-table">
+        <thead>
+          <tr>
+            <th></th>
+            <th>たね</th>
+            <th>つぼみ</th>
+            <th>はな</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>月額</td>
+            <td><span class="plan-price">¥4,000</span><small>/月</small></td>
+            <td><span class="plan-price">¥6,000</span><small>/月</small></td>
+            <td><span class="plan-price">¥9,000</span><small>/月</small></td>
+          </tr>
+          <tr>
+            <td>毎月のクーポン</td>
+            <td>3枚</td>
+            <td>10枚</td>
+            <td>100枚</td>
+          </tr>
+          <tr>
+            <td>こんな方に</td>
+            <td class="plan-for">小規模・まず試してみたい</td>
+            <td class="plan-for">定期イベントや定期配布</td>
+            <td class="plan-for">ワークショップ・大量配布</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="plan-systems-note">
+        ※ 絵本作成システム・バリュービジョンゲームの両システムの利用権を含みます。
+      </p>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ========== 09: 活動開始までの流れ ========== -->
+<section class="section flow-section" id="flow">
+  <div class="section-inner">
+    <h2 class="fade-in">活動開始までの流れ</h2>
+
+    <div class="flow-steps-v">
+      <div class="flow-v-item fade-in delay-1">
+        <span class="flow-v-num">1</span>
+        <div class="flow-v-content">
+          <h4>エホンリウム体験会に参加する</h4>
+          <p>まずは参加者として体験会を受けてみてください。</p>
+        </div>
+        <span class="flow-v-line"></span>
+      </div>
+      <div class="flow-v-item fade-in delay-2">
+        <span class="flow-v-num">2</span>
+        <div class="flow-v-content">
+          <h4>自分の絵本を作成する</h4>
+          <p>体験を通じて、あなた自身の一冊を完成させます。</p>
+        </div>
+        <span class="flow-v-line"></span>
+      </div>
+      <div class="flow-v-item fade-in delay-1">
+        <span class="flow-v-num">3</span>
+        <div class="flow-v-content">
+          <h4>ガイド養成講座へ申し込む</h4>
+          <p>Googleフォームからお申込みください。</p>
+        </div>
+        <span class="flow-v-line"></span>
+      </div>
+      <div class="flow-v-item fade-in delay-2">
+        <span class="flow-v-num">4</span>
+        <div class="flow-v-content">
+          <h4>進行方法とシステム操作を学ぶ</h4>
+          <p>2時間の養成講座で実践的に学びます。</p>
+        </div>
+        <span class="flow-v-line"></span>
+      </div>
+      <div class="flow-v-item fade-in delay-1">
+        <span class="flow-v-num">5</span>
+        <div class="flow-v-content">
+          <h4>開催準備をする</h4>
+          <p>マニュアルを参考に、告知や集客を始めます。</p>
+        </div>
+        <span class="flow-v-line"></span>
+      </div>
+      <div class="flow-v-item fade-in delay-2">
+        <span class="flow-v-num">6</span>
+        <div class="flow-v-content">
+          <h4>自分の活動を案内する</h4>
+          <p>SNSや公式LINEなどで、体験会の開催を告知します。</p>
+        </div>
+        <span class="flow-v-line"></span>
+      </div>
+      <div class="flow-v-item fade-in delay-1">
+        <span class="flow-v-num">7</span>
+        <div class="flow-v-content">
+          <h4>エホンリウムガイドとして活動を始める</h4>
+          <p>あなたのペースで、体験会を開催していきましょう。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- deco: dots + leaf -->
+<div class="section-deco" aria-hidden="true">
+  <div class="deco-item fade-in" style="left:40%; top:8px;">
+    <span class="deco-tiny-leaf leaf-3"></span>
+  </div>
+  <div class="deco-item fade-in" style="left:45%; top:24px;">
+    <span class="deco-dot dot-green"></span>
+  </div>
+</div>
+
+
+<!-- ========== 10: サポート ========== -->
+<section class="book-spread" id="support">
+  <div class="section-inner">
+    <div class="illust-side fade-in-right" style="max-width:380px;">
+      <img src="イラスト/38.png" alt="寄り添うサポートのイメージ" loading="lazy" style="animation: float 7s ease-in-out infinite;">
+    </div>
+    <div class="text-side">
+      <h2 class="fade-in">受講して終わりではなく、<br>活動を続けるための相談の場を。</h2>
+      <div class="book-text fade-in delay-1">
+        <p>養成講座修了後は、月1回の相談会に参加できます。</p>
+        <ul class="support-list">
+          <li>初開催に向けた準備</li>
+          <li>体験会の進め方</li>
+          <li>参加者への対応</li>
+          <li>集客や告知について</li>
+          <li>実際に開催してみてわかったこと</li>
+          <li>収益や活動の改善点</li>
+        </ul>
+        <p style="margin-top:20px;">
+          などを相談しながら、<br>
+          自分のペースで活動を育てていきます。
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- deco: bird -->
+<div class="deco-bird" aria-hidden="true">
+  <div class="deco-bird-wrap fade-in" style="left:10%; top:0;">
+    <img src="イラスト/19.png" alt="">
+  </div>
+</div>
+
+
+<!-- ========== 11: エホンリウムトレーナーへの道 ========== -->
+<section class="book-spread reverse" id="trainer">
+  <div class="section-inner">
+    <div class="illust-side fade-in-left" style="max-width:360px;">
+      <img src="イラスト/23.png" alt="成長と次のステージのイメージ" loading="lazy" style="animation: sway 9s ease-in-out infinite;">
+    </div>
+    <div class="text-side">
+      <span class="trainer-badge">NEXT STAGE</span>
+      <h2 class="fade-in">届ける人から、<br>届ける人を育てる存在へ。</h2>
+      <div class="book-text fade-in delay-1">
+        <p>エホンリウムガイドとして経験を重ね、<br>一定の条件を満たした方は、<br>ガイド養成講座を開催できる上位資格<br>「エホンリウムトレーナー」に進めます。</p>
+      </div>
+      <div class="trainer-req fade-in delay-2">
+        <h4>昇格条件</h4>
+        <p>累計20名以上への実施、かつ体験会10回以上の開催</p>
+      </div>
+      <div class="fade-in delay-3" style="margin-top:24px;">
+        <p style="font-family:var(--font-serif); font-size:0.85rem; margin-bottom:12px; color:var(--brown-text);">トレーナーができること</p>
+        <ul class="trainer-abilities">
+          <li>エホンリウムガイド養成講座の開催</li>
+          <li>新しいガイドの育成</li>
+          <li>地域やコミュニティでのエホンリウム展開</li>
+          <li>ガイドの活動支援</li>
+          <li>エホンリウムの輪を広げるチームづくり</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- deco: leaf + dot -->
+<div class="section-deco" aria-hidden="true">
+  <div class="deco-item fade-in" style="left:60%; top:10px;">
+    <span class="deco-tiny-leaf leaf-2"></span>
+  </div>
+  <div class="deco-item fade-in" style="left:55%; top:26px;">
+    <span class="deco-dot"></span>
+  </div>
+  <div class="deco-item fade-in" style="left:63%; top:20px;">
+    <span class="deco-tiny-leaf leaf-3"></span>
+  </div>
+</div>
+
+
+<!-- ========== 12: よくある質問 ========== -->
+<section class="section sec-faq" id="faq">
+  <div class="section-inner">
+    <h2 class="fade-in" style="margin-bottom:40px;">よくある質問</h2>
+
+    <div class="faq-layout">
+      <div class="faq-illust fade-in-left">
+        <img src="イラスト/28.png" alt="よくある質問" loading="lazy" style="animation: float 8s ease-in-out infinite;">
+      </div>
+      <div class="faq-content">
+        <div class="faq-list">
+          <div class="faq-item fade-in delay-1">
+            <div class="faq-q"><span class="faq-q-mark">Q.</span>起業経験がなくても受講できますか？</div>
+            <p class="faq-a">はい。特別な経歴や実績がなくても大丈夫です。ご自身がエホンリウム体験会を受けた経験が、そのままガイドとしての力になります。</p>
+          </div>
+          <div class="faq-item fade-in delay-2">
+            <div class="faq-q"><span class="faq-q-mark">Q.</span>ガイドになると必ず収入を得られますか？</div>
+            <p class="faq-a">収入を保証するものではありません。集客や開催頻度により異なりますが、サポート体制を通じて活動を一緒に育てていきます。</p>
+          </div>
+          <div class="faq-item fade-in delay-1">
+            <div class="faq-q"><span class="faq-q-mark">Q.</span>集客は自分で行いますか？</div>
+            <p class="faq-a">基本的にはご自身で行いますが、公式LINEからの集客情報や販促資料のサポートがあります。月1回の相談会で集客のご相談も可能です。</p>
+          </div>
+          <div class="faq-item fade-in delay-2">
+            <div class="faq-q"><span class="faq-q-mark">Q.</span>参加費を自由に決められますか？</div>
+            <p class="faq-a">はい。ご自身で参加費を設定できます。地域や対象に合わせて、柔軟に価格を設定していただけます。</p>
+          </div>
+          <div class="faq-item fade-in delay-1">
+            <div class="faq-q"><span class="faq-q-mark">Q.</span>毎月開催しなければいけませんか？</div>
+            <p class="faq-a">いいえ。開催頻度は自由です。お子さまの予定や生活リズムに合わせて、無理のないペースで活動できます。</p>
+          </div>
+          <div class="faq-item fade-in delay-2">
+            <div class="faq-q"><span class="faq-q-mark">Q.</span>子どもがいても活動できますか？</div>
+            <p class="faq-a">もちろんです。子育てと両立しながら活動されている方も多くいらっしゃいます。オンライン開催なら、ご自宅から始められます。</p>
+          </div>
+          <div class="faq-item fade-in delay-1">
+            <div class="faq-q"><span class="faq-q-mark">Q.</span>既存の仕事や講座と組み合わせられますか？</div>
+            <p class="faq-a">はい。カウンセラー、コーチ、子育て支援など、既存の活動にエホンリウムを組み合わせている方もいらっしゃいます。</p>
+          </div>
+          <div class="faq-item fade-in delay-2">
+            <div class="faq-q"><span class="faq-q-mark">Q.</span>対面でも開催できますか？</div>
+            <p class="faq-a">はい。オンラインだけでなく、対面での開催も可能です。地域のコミュニティスペースやカフェなど、お好きな場所で開催いただけます。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ========== 13: 最終CTA ========== -->
+<section class="section sec-final-cta" id="apply">
+  <div class="section-inner">
+    <img src="イラスト/８.png" alt="" class="paper-plane-deco fade-in" aria-hidden="true">
+    <h2 class="fade-in delay-1">自分の物語から始まった一歩を、<br>今度は誰かへ届けてみませんか。</h2>
+    <p class="body-text fade-in delay-2">
+      特別な経歴や、大きな実績がなくても<br class="br-mobile">大丈夫です。<br class="br-desktop">自分自身が向き合い、<br class="br-mobile">考え、物語をつくった経験があるからこそ、<br>同じように最初の一歩を探している人の<br class="br-mobile">力になれます。<br><br>
+      暮らしを大切にしながら、自分らしい仕事を<br class="br-mobile">小さく育てていく。<br class="br-desktop">エホンリウムガイドとして、<br class="br-mobile">新しい一歩を始めてみませんか。
+    </p>
+    <div class="fade-in delay-3">
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLScps3sHW0tsRKcsCWy_4JyRMFl2Z_eTFhvYKOvKWTzDq3i6YQ/viewform?usp=sharing" target="_blank" rel="noopener" class="btn-cta btn-coral">養成講座に申し込む</a>
+      <p class="cta-info">オンライン｜全1回・2時間｜28,000円（税込）</p>
+      <p class="cta-note">※体験会参加者限定</p>
+    </div>
+    <div class="fade-in delay-4" style="margin-top:24px;">
+      <a href="workshop.html" class="btn-cta btn-green-outline" style="font-size:0.75rem; padding:10px 28px;">まずは体験会に参加する</a>
+    </div>
+    <div class="fade-in delay-5" style="margin-top:12px;">
+      <a href="index.html" class="btn-cta btn-lavender" style="font-size:0.75rem; padding:10px 28px;">エホンリウムについてもっと知る</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ========== Footer ========== -->
+<footer class="site-footer">
+  <p class="footer-logo">エホンリウム</p>
+  <nav class="footer-nav">
+    <a href="index.html">エホンリウムとは</a>
+    <a href="workshop.html">体験会</a>
+    <a href="guide.html">エホンリウムガイド（養成講座）</a>
+  </nav>
+  <p class="footer-copy">© エホンリウム All rights reserved.</p>
+</footer>
+
+
+<!-- ========== JavaScript ========== -->
+<script>
+/* Scroll Animations (Intersection Observer) */
+(function() {
+  var targets = document.querySelectorAll('.fade-in, .fade-in-left, .fade-in-right, .fade-in-slow');
+
+  if ('IntersectionObserver' in window) {
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    });
+
+    targets.forEach(function(el) { observer.observe(el); });
+  } else {
+    targets.forEach(function(el) { el.classList.add('visible'); });
+  }
+})();
+
+/* Header scroll effect */
+(function() {
+  var header = document.getElementById('siteHeader');
+
+  window.addEventListener('scroll', function() {
+    if (window.pageYOffset > 80) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+  }, { passive: true });
+})();
+
+/* Mobile Navigation */
+function closeMobileNav() {
+  document.getElementById('mobileNav').classList.remove('open');
+}
+
+document.getElementById('hamburgerBtn').addEventListener('click', function() {
+  document.getElementById('mobileNav').classList.add('open');
+});
+
+document.getElementById('closeNav').addEventListener('click', closeMobileNav);
+
+/* Smooth scroll for anchor links */
+document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+  anchor.addEventListener('click', function(e) {
+    var href = this.getAttribute('href');
+    if (href === '#') return;
+    e.preventDefault();
+    var target = document.querySelector(href);
+    if (target) {
+      var headerHeight = document.getElementById('siteHeader').offsetHeight;
+      var top = target.getBoundingClientRect().top + window.pageYOffset - headerHeight - 20;
+      window.scrollTo({ top: top, behavior: 'smooth' });
+    }
+  });
+});
+</script>
+
+</body>
+</html>
