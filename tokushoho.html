@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>特定商取引法に基づく表記｜エホンリウム</title>
+<meta name="description" content="エホンリウムの特定商取引法に基づく表記です。">
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<!-- OGP -->
+<meta property="og:title" content="特定商取引法に基づく表記｜エホンリウム">
+<meta property="og:description" content="エホンリウムの特定商取引法に基づく表記です。">
+<meta property="og:image" content="https://ehonrium.pages.dev/ogp.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:type" content="image/png">
+<meta property="og:url" content="https://ehonrium.pages.dev/tokushoho.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="エホンリウム">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://ehonrium.pages.dev/ogp.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500;600&family=Zen+Maru+Gothic:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+/* ==============================
+   CSS Custom Properties
+   ============================== */
+:root {
+  --bg-cream: #FDF8F0;
+  --bg-warm: #FAF3E8;
+  --green-leaf: #7BAF52;
+  --green-moss: #8B9E6B;
+  --green-mint: #8ECFC0;
+  --blue-sky: #B5D8E8;
+  --yellow-hope: #F0D86E;
+  --coral-warm: #E8A5A0;
+  --lavender: #C4B4D8;
+  --brown-text: #51463F;
+  --brown-light: #7A6E64;
+  --brown-pale: #A89888;
+  --pink-petal: #F2D5D0;
+  --font-serif: 'Noto Serif JP', 'Yu Mincho', '游明朝', serif;
+  --font-round: 'Zen Maru Gothic', 'Rounded Mplus 1c', sans-serif;
+}
+
+/* ==============================
+   Reset & Base
+   ============================== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-round);
+  font-weight: 300;
+  color: var(--brown-text);
+  background-color: var(--bg-cream);
+  line-height: 2;
+  letter-spacing: 0.08em;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul { list-style: none; }
+
+/* ==============================
+   Typography
+   ============================== */
+.serif { font-family: var(--font-serif); }
+
+h1, h2, h3 {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  line-height: 2.2;
+}
+
+/* ==============================
+   Header
+   ============================== */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background 0.5s ease, padding 0.3s ease;
+  background: rgba(253, 248, 240, 0.92);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 1px 20px rgba(81, 70, 63, 0.05);
+}
+.site-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  color: var(--brown-text);
+}
+.site-logo-img {
+  height: 32px;
+  width: auto;
+}
+.site-nav {
+  display: flex;
+  gap: 32px;
+}
+.site-nav a {
+  font-family: var(--font-serif);
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  color: var(--brown-light);
+  transition: color 0.3s ease;
+  position: relative;
+}
+.site-nav a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--green-leaf);
+  transition: width 0.3s ease;
+}
+.site-nav a:hover { color: var(--brown-text); }
+.site-nav a:hover::after { width: 100%; }
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 5px;
+}
+.hamburger span {
+  display: block;
+  width: 22px;
+  height: 1.5px;
+  background: var(--brown-text);
+  transition: 0.3s ease;
+}
+
+/* ==============================
+   Mobile Nav
+   ============================== */
+.mobile-nav {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(253, 248, 240, 0.97);
+  z-index: 99;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+}
+.mobile-nav.open { display: flex; }
+.mobile-nav a {
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  letter-spacing: 0.1em;
+  color: var(--brown-text);
+}
+.mobile-nav .close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--brown-text);
+  cursor: pointer;
+}
+
+/* ==============================
+   Page Content
+   ============================== */
+.page-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 140px 6vw 80px;
+}
+
+.page-title {
+  text-align: center;
+  font-size: 1.5rem;
+  margin-bottom: 16px;
+  letter-spacing: 0.12em;
+}
+
+.page-subtitle {
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--brown-pale);
+  margin-bottom: 60px;
+  letter-spacing: 0.08em;
+}
+
+/* ==============================
+   Legal Table
+   ============================== */
+.legal-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 60px;
+}
+
+.legal-table th,
+.legal-table td {
+  padding: 20px 16px;
+  border-bottom: 1px solid rgba(168, 152, 136, 0.2);
+  font-size: 0.88rem;
+  line-height: 1.9;
+  vertical-align: top;
+  text-align: left;
+}
+
+.legal-table th {
+  width: 200px;
+  font-family: var(--font-serif);
+  font-weight: 400;
+  color: var(--brown-text);
+  background: rgba(250, 243, 232, 0.5);
+  white-space: nowrap;
+}
+
+.legal-table td {
+  color: var(--brown-light);
+}
+
+.legal-table td ul {
+  padding-left: 1.2em;
+  list-style: disc;
+}
+
+.legal-table td ul li {
+  margin-bottom: 4px;
+}
+
+.legal-table td ul li::marker {
+  color: var(--green-leaf);
+}
+
+/* ==============================
+   Footer
+   ============================== */
+.site-footer {
+  padding: 60px 6vw 40px;
+  text-align: center;
+  position: relative;
+}
+.footer-logo {
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  letter-spacing: 0.15em;
+  margin-bottom: 20px;
+}
+.footer-nav {
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+}
+.footer-nav a {
+  font-size: 0.72rem;
+  color: var(--brown-pale);
+  letter-spacing: 0.05em;
+}
+.footer-nav a:hover {
+  color: var(--brown-text);
+}
+.footer-legal {
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+}
+.footer-legal a {
+  font-size: 0.65rem;
+  color: var(--brown-pale);
+  letter-spacing: 0.05em;
+  opacity: 0.8;
+}
+.footer-legal a:hover {
+  color: var(--brown-text);
+  opacity: 1;
+}
+.footer-copy {
+  font-size: 0.65rem;
+  color: var(--brown-pale);
+  letter-spacing: 0.05em;
+}
+
+/* ==============================
+   Responsive
+   ============================== */
+@media (max-width: 768px) {
+  .site-nav { display: none; }
+  .hamburger { display: flex; }
+  .site-header { padding: 16px 20px; }
+
+  .page-content {
+    padding: 120px 5vw 60px;
+  }
+
+  .page-title {
+    font-size: 1.2rem;
+  }
+
+  .legal-table th,
+  .legal-table td {
+    display: block;
+    width: 100%;
+    padding: 12px 16px;
+  }
+
+  .legal-table th {
+    border-bottom: none;
+    padding-bottom: 4px;
+    font-size: 0.82rem;
+  }
+
+  .legal-table td {
+    padding-top: 0;
+    font-size: 0.82rem;
+  }
+
+  .footer-nav, .footer-legal {
+    flex-direction: column;
+    gap: 16px;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- ========== Header ========== -->
+<header class="site-header" id="siteHeader">
+  <a href="index.html" class="site-logo"><img src="ロゴ.webp" alt="エホンリウム ロゴ" class="site-logo-img">エホンリウム</a>
+  <nav class="site-nav">
+    <a href="index.html">エホンリウムとは</a>
+    <a href="workshop.html">体験会</a>
+    <a href="guide.html">エホンリウムガイド<br><span style="font-size:0.65rem;color:var(--brown-pale);">（養成講座）</span></a>
+    <a href="contact.html">お問い合わせ</a>
+  </nav>
+  <button class="hamburger" id="hamburgerBtn" aria-label="メニュー">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<!-- Mobile Nav -->
+<div class="mobile-nav" id="mobileNav">
+  <button class="close-btn" id="closeNav" aria-label="閉じる">×</button>
+  <a href="index.html" onclick="closeMobileNav()">エホンリウムとは</a>
+  <a href="workshop.html" onclick="closeMobileNav()">体験会</a>
+  <a href="guide.html" onclick="closeMobileNav()">エホンリウムガイド（養成講座）</a>
+  <a href="contact.html" onclick="closeMobileNav()">お問い合わせ</a>
+</div>
+
+<!-- ========== Content ========== -->
+<main class="page-content">
+  <h1 class="page-title serif">特定商取引法に基づく表記</h1>
+  <p class="page-subtitle">Notation based on the Specified Commercial Transactions Act</p>
+
+  <table class="legal-table">
+    <tbody>
+      <tr>
+        <th>販売事業者名</th>
+        <td>EHONGOTO（エホンゴト）</td>
+      </tr>
+      <tr>
+        <th>運営責任者</th>
+        <td>秋月偲希</td>
+      </tr>
+      <tr>
+        <th>所在地</th>
+        <td>〒530-0001<br>大阪府大阪市北区梅田1丁目1番3号<br>大阪駅前第3ビル11階2号室</td>
+      </tr>
+      <tr>
+        <th>電話番号</th>
+        <td>請求があった場合、遅滞なく開示いたします。</td>
+      </tr>
+      <tr>
+        <th>メールアドレス</th>
+        <td>info@ehongoto.jp</td>
+      </tr>
+      <tr>
+        <th>販売価格</th>
+        <td>
+          各サービスページに記載された金額（税込）
+          <ul>
+            <li>体験会：3,000円（税込）</li>
+            <li>エホンリウムガイド養成講座：28,000円（税込）</li>
+            <li>システム利用料（月額）：4,000円〜9,000円（税込・プランにより異なる）</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <th>商品代金以外の<br>必要料金</th>
+        <td>
+          <ul>
+            <li>振込手数料（銀行振込の場合）</li>
+            <li>インターネット接続に必要な通信料（お客様負担）</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <th>お支払い方法</th>
+        <td>
+          <ul>
+            <li>クレジットカード決済</li>
+            <li>銀行振込</li>
+            <li>その他、各サービスページに記載された決済方法</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <th>代金の支払い時期</th>
+        <td>
+          <ul>
+            <li>体験会・養成講座：お申込み時に決済</li>
+            <li>システム利用料：毎月の契約更新日に決済</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <th>サービスの提供時期</th>
+        <td>
+          <ul>
+            <li>体験会：お申込み時に確定した日時にオンラインで実施</li>
+            <li>養成講座：お申込み時に確定した日時にオンラインで実施</li>
+            <li>システム利用：契約成立後、速やかにアクセス権を付与</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <th>返品・キャンセル<br>について</th>
+        <td>
+          <ul>
+            <li>体験会・養成講座：開催日の3日前までのキャンセルは全額返金いたします。それ以降のキャンセルは返金いたしかねます。</li>
+            <li>システム利用料：月額制のため、解約のお申し出がない限り自動更新されます。解約は次回更新日の前日までにご連絡ください。既にお支払い済みの月額料金の返金はいたしかねます。</li>
+            <li>当社の責に帰すべき事由によりサービスが提供できなかった場合は、全額返金いたします。</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <th>動作環境</th>
+        <td>
+          オンラインサービスのため、以下の環境が必要です。
+          <ul>
+            <li>インターネットに接続可能なパソコン、タブレット、またはスマートフォン</li>
+            <li>Zoom等のビデオ会議ツール（体験会・養成講座）</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <th>表現及びサービスに<br>関する注意書き</th>
+        <td>本サイトに掲載される文章・画像はイメージです。実際のサービス内容・成果物は一部異なる場合があります。</td>
+      </tr>
+    </tbody>
+  </table>
+</main>
+
+<!-- ========== Footer ========== -->
+<footer class="site-footer">
+  <p class="footer-logo">エホンリウム</p>
+  <nav class="footer-nav">
+    <a href="index.html">エホンリウムとは</a>
+    <a href="workshop.html">体験会</a>
+    <a href="guide.html">エホンリウムガイド（養成講座）</a>
+    <a href="contact.html">お問い合わせ</a>
+  </nav>
+  <div class="footer-legal">
+    <a href="tokushoho.html">特定商取引法に基づく表記</a>
+    <a href="privacy.html">プライバシーポリシー</a>
+  </div>
+  <p class="footer-copy">© エホンリウム All rights reserved.</p>
+</footer>
+
+<!-- ========== JavaScript ========== -->
+<script>
+/* Hamburger menu */
+document.getElementById('hamburgerBtn').addEventListener('click', () => {
+  document.getElementById('mobileNav').classList.add('open');
+});
+document.getElementById('closeNav').addEventListener('click', () => {
+  document.getElementById('mobileNav').classList.remove('open');
+});
+function closeMobileNav() {
+  document.getElementById('mobileNav').classList.remove('open');
+}
+</script>
+</body>
+</html>

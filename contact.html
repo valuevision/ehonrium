@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>お問い合わせ｜エホンリウム</title>
+<meta name="description" content="エホンリウムへのお問い合わせはこちらから。体験会・養成講座・サービスについてお気軽にご連絡ください。">
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<!-- OGP -->
+<meta property="og:title" content="お問い合わせ｜エホンリウム">
+<meta property="og:description" content="エホンリウムへのお問い合わせはこちらから。体験会・養成講座・サービスについてお気軽にご連絡ください。">
+<meta property="og:image" content="https://ehonrium.pages.dev/ogp.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:type" content="image/png">
+<meta property="og:url" content="https://ehonrium.pages.dev/contact.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="エホンリウム">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://ehonrium.pages.dev/ogp.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500;600&family=Zen+Maru+Gothic:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+/* ==============================
+   CSS Custom Properties
+   ============================== */
+:root {
+  --bg-cream: #FDF8F0;
+  --bg-warm: #FAF3E8;
+  --green-leaf: #7BAF52;
+  --green-moss: #8B9E6B;
+  --green-mint: #8ECFC0;
+  --blue-sky: #B5D8E8;
+  --yellow-hope: #F0D86E;
+  --coral-warm: #E8A5A0;
+  --lavender: #C4B4D8;
+  --brown-text: #51463F;
+  --brown-light: #7A6E64;
+  --brown-pale: #A89888;
+  --pink-petal: #F2D5D0;
+  --font-serif: 'Noto Serif JP', 'Yu Mincho', '游明朝', serif;
+  --font-round: 'Zen Maru Gothic', 'Rounded Mplus 1c', sans-serif;
+}
+
+/* ==============================
+   Reset & Base
+   ============================== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-round);
+  font-weight: 300;
+  color: var(--brown-text);
+  background-color: var(--bg-cream);
+  line-height: 2;
+  letter-spacing: 0.08em;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul { list-style: none; }
+
+/* ==============================
+   Typography
+   ============================== */
+.serif { font-family: var(--font-serif); }
+
+h1, h2, h3 {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  line-height: 2.2;
+}
+
+/* ==============================
+   Header
+   ============================== */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background 0.5s ease, padding 0.3s ease;
+  background: rgba(253, 248, 240, 0.92);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 1px 20px rgba(81, 70, 63, 0.05);
+}
+.site-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  color: var(--brown-text);
+}
+.site-logo-img {
+  height: 32px;
+  width: auto;
+}
+.site-nav {
+  display: flex;
+  gap: 32px;
+}
+.site-nav a {
+  font-family: var(--font-serif);
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  color: var(--brown-light);
+  transition: color 0.3s ease;
+  position: relative;
+}
+.site-nav a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--green-leaf);
+  transition: width 0.3s ease;
+}
+.site-nav a:hover { color: var(--brown-text); }
+.site-nav a:hover::after { width: 100%; }
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 5px;
+}
+.hamburger span {
+  display: block;
+  width: 22px;
+  height: 1.5px;
+  background: var(--brown-text);
+  transition: 0.3s ease;
+}
+
+/* ==============================
+   Mobile Nav
+   ============================== */
+.mobile-nav {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(253, 248, 240, 0.97);
+  z-index: 99;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+}
+.mobile-nav.open { display: flex; }
+.mobile-nav a {
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  letter-spacing: 0.1em;
+  color: var(--brown-text);
+}
+.mobile-nav .close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--brown-text);
+  cursor: pointer;
+}
+
+/* ==============================
+   Page Content
+   ============================== */
+.page-content {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 140px 6vw 80px;
+}
+
+.page-title {
+  text-align: center;
+  font-size: 1.5rem;
+  margin-bottom: 16px;
+  letter-spacing: 0.12em;
+}
+
+.page-subtitle {
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--brown-pale);
+  margin-bottom: 20px;
+  letter-spacing: 0.08em;
+}
+
+.page-intro {
+  text-align: center;
+  font-size: 0.88rem;
+  color: var(--brown-light);
+  line-height: 2;
+  margin-bottom: 48px;
+}
+
+/* ==============================
+   Contact Form
+   ============================== */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  font-family: var(--font-serif);
+  font-size: 0.88rem;
+  font-weight: 400;
+  color: var(--brown-text);
+  letter-spacing: 0.08em;
+}
+
+.form-group label .required {
+  font-size: 0.7rem;
+  color: var(--coral-warm);
+  margin-left: 8px;
+  font-family: var(--font-round);
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 14px 18px;
+  font-family: var(--font-round);
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: var(--brown-text);
+  background: #fff;
+  border: 1px solid rgba(168, 152, 136, 0.3);
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  letter-spacing: 0.05em;
+  line-height: 1.8;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: var(--brown-pale);
+  opacity: 0.6;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  border-color: var(--green-leaf);
+  box-shadow: 0 0 0 3px rgba(123, 175, 82, 0.1);
+}
+
+.form-group textarea {
+  min-height: 180px;
+  resize: vertical;
+}
+
+.form-group select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23A89888' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  padding-right: 40px;
+  cursor: pointer;
+}
+
+.form-submit {
+  display: flex;
+  justify-content: center;
+  margin-top: 12px;
+}
+
+.btn-submit {
+  display: inline-block;
+  padding: 16px 60px;
+  font-family: var(--font-serif);
+  font-size: 0.95rem;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  color: #fff;
+  background: var(--green-leaf);
+  border: none;
+  border-radius: 40px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 16px rgba(123, 175, 82, 0.25);
+}
+
+.btn-submit:hover {
+  background: var(--green-moss);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(123, 175, 82, 0.3);
+}
+
+.btn-submit:active {
+  transform: translateY(0);
+}
+
+.form-note {
+  text-align: center;
+  font-size: 0.75rem;
+  color: var(--brown-pale);
+  margin-top: 8px;
+  line-height: 1.8;
+}
+
+/* ==============================
+   Thank You (shown after submit)
+   ============================== */
+.thank-you {
+  display: none;
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.thank-you.show {
+  display: block;
+}
+
+.thank-you h2 {
+  font-size: 1.3rem;
+  margin-bottom: 20px;
+}
+
+.thank-you p {
+  font-size: 0.88rem;
+  color: var(--brown-light);
+  line-height: 2;
+  margin-bottom: 12px;
+}
+
+.thank-you .btn-back {
+  display: inline-block;
+  margin-top: 28px;
+  padding: 12px 40px;
+  font-family: var(--font-serif);
+  font-size: 0.85rem;
+  color: var(--brown-text);
+  border: 1px solid rgba(168, 152, 136, 0.4);
+  border-radius: 40px;
+  transition: background 0.3s ease;
+}
+
+.thank-you .btn-back:hover {
+  background: var(--bg-warm);
+}
+
+/* ==============================
+   Footer
+   ============================== */
+.site-footer {
+  padding: 60px 6vw 40px;
+  text-align: center;
+  position: relative;
+}
+.footer-logo {
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  letter-spacing: 0.15em;
+  margin-bottom: 20px;
+}
+.footer-nav {
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+}
+.footer-nav a {
+  font-size: 0.72rem;
+  color: var(--brown-pale);
+  letter-spacing: 0.05em;
+}
+.footer-nav a:hover {
+  color: var(--brown-text);
+}
+.footer-legal {
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+}
+.footer-legal a {
+  font-size: 0.65rem;
+  color: var(--brown-pale);
+  letter-spacing: 0.05em;
+  opacity: 0.8;
+}
+.footer-legal a:hover {
+  color: var(--brown-text);
+  opacity: 1;
+}
+.footer-copy {
+  font-size: 0.65rem;
+  color: var(--brown-pale);
+  letter-spacing: 0.05em;
+}
+
+/* ==============================
+   Responsive
+   ============================== */
+@media (max-width: 768px) {
+  .site-nav { display: none; }
+  .hamburger { display: flex; }
+  .site-header { padding: 16px 20px; }
+
+  .page-content {
+    padding: 120px 5vw 60px;
+  }
+
+  .page-title {
+    font-size: 1.2rem;
+  }
+
+  .btn-submit {
+    padding: 14px 48px;
+    font-size: 0.88rem;
+  }
+
+  .footer-nav, .footer-legal {
+    flex-direction: column;
+    gap: 16px;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- ========== Header ========== -->
+<header class="site-header" id="siteHeader">
+  <a href="index.html" class="site-logo"><img src="ロゴ.webp" alt="エホンリウム ロゴ" class="site-logo-img">エホンリウム</a>
+  <nav class="site-nav">
+    <a href="index.html">エホンリウムとは</a>
+    <a href="workshop.html">体験会</a>
+    <a href="guide.html">エホンリウムガイド<br><span style="font-size:0.65rem;color:var(--brown-pale);">（養成講座）</span></a>
+    <a href="contact.html">お問い合わせ</a>
+  </nav>
+  <button class="hamburger" id="hamburgerBtn" aria-label="メニュー">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<!-- Mobile Nav -->
+<div class="mobile-nav" id="mobileNav">
+  <button class="close-btn" id="closeNav" aria-label="閉じる">×</button>
+  <a href="index.html" onclick="closeMobileNav()">エホンリウムとは</a>
+  <a href="workshop.html" onclick="closeMobileNav()">体験会</a>
+  <a href="guide.html" onclick="closeMobileNav()">エホンリウムガイド（養成講座）</a>
+  <a href="contact.html" onclick="closeMobileNav()">お問い合わせ</a>
+</div>
+
+<!-- ========== Content ========== -->
+<main class="page-content">
+  <h1 class="page-title serif">お問い合わせ</h1>
+  <p class="page-subtitle">Contact</p>
+  <p class="page-intro">
+    エホンリウムに関するご質問・ご相談など、<br>
+    お気軽にお問い合わせください。<br>
+    通常2〜3営業日以内にご返信いたします。
+  </p>
+
+  <!-- Contact Form -->
+  <form id="contactForm" class="contact-form" action="https://formspree.io/f/maeyglnb" method="POST">
+    <div class="form-group">
+      <label for="name">お名前<span class="required">必須</span></label>
+      <input type="text" id="name" name="name" placeholder="例：山田 花子" required>
+    </div>
+
+    <div class="form-group">
+      <label for="email">メールアドレス<span class="required">必須</span></label>
+      <input type="email" id="email" name="email" placeholder="例：hanako@example.com" required>
+    </div>
+
+    <div class="form-group">
+      <label for="category">お問い合わせ種別</label>
+      <select id="category" name="category">
+        <option value="" disabled selected>選択してください</option>
+        <option value="体験会について">体験会について</option>
+        <option value="エホンリウムガイド養成講座について">エホンリウムガイド養成講座について</option>
+        <option value="サービス全般について">サービス全般について</option>
+        <option value="その他">その他</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="message">お問い合わせ内容<span class="required">必須</span></label>
+      <textarea id="message" name="message" placeholder="お問い合わせ内容をご記入ください" required></textarea>
+    </div>
+
+    <input type="hidden" name="_subject" value="【エホンリウム】お問い合わせがありました">
+    <input type="hidden" name="_cc" value="info@ehongoto.jp">
+    <input type="hidden" name="_next" value="https://ehonrium.pages.dev/contact.html?sent=true">
+
+    <div class="form-submit">
+      <button type="submit" class="btn-submit">送信する</button>
+    </div>
+    <p class="form-note">※ 送信後、確認メールが届かない場合は<br>迷惑メールフォルダをご確認ください。</p>
+  </form>
+
+  <!-- Thank You Message -->
+  <div id="thankYou" class="thank-you">
+    <h2 class="serif">お問い合わせありがとうございます</h2>
+    <p>内容を確認のうえ、2〜3営業日以内にご返信いたします。</p>
+    <p>しばらくお待ちくださいませ。</p>
+    <a href="index.html" class="btn-back">トップページへ戻る</a>
+  </div>
+</main>
+
+<!-- ========== Footer ========== -->
+<footer class="site-footer">
+  <p class="footer-logo">エホンリウム</p>
+  <nav class="footer-nav">
+    <a href="index.html">エホンリウムとは</a>
+    <a href="workshop.html">体験会</a>
+    <a href="guide.html">エホンリウムガイド（養成講座）</a>
+    <a href="contact.html">お問い合わせ</a>
+  </nav>
+  <div class="footer-legal">
+    <a href="tokushoho.html">特定商取引法に基づく表記</a>
+    <a href="privacy.html">プライバシーポリシー</a>
+  </div>
+  <p class="footer-copy">© エホンリウム All rights reserved.</p>
+</footer>
+
+<!-- ========== JavaScript ========== -->
+<script>
+/* Hamburger menu */
+document.getElementById('hamburgerBtn').addEventListener('click', () => {
+  document.getElementById('mobileNav').classList.add('open');
+});
+document.getElementById('closeNav').addEventListener('click', () => {
+  document.getElementById('mobileNav').classList.remove('open');
+});
+function closeMobileNav() {
+  document.getElementById('mobileNav').classList.remove('open');
+}
+
+/* Show thank you message if redirected after form submit */
+(function() {
+  const params = new URLSearchParams(window.location.search);
+  if (params.get('sent') === 'true') {
+    document.getElementById('contactForm').style.display = 'none';
+    document.querySelector('.page-intro').style.display = 'none';
+    document.getElementById('thankYou').classList.add('show');
+    /* Clean URL */
+    history.replaceState(null, '', window.location.pathname);
+  }
+})();
+</script>
+</body>
+</html>
