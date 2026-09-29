@@ -3,19 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>プライバシーポリシー｜エホンリウム</title>
-<meta name="description" content="エホンリウムのプライバシーポリシー（個人情報保護方針）です。">
+<title>トレーナー紹介｜エホンリウム</title>
+<meta name="description" content="エホンリウムのトレーナー・ガイドをご紹介します。">
 <!-- Favicon -->
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <!-- OGP -->
-<meta property="og:title" content="プライバシーポリシー｜エホンリウム">
-<meta property="og:description" content="エホンリウムのプライバシーポリシー（個人情報保護方針）です。">
+<meta property="og:title" content="トレーナー紹介｜エホンリウム">
+<meta property="og:description" content="エホンリウムのトレーナー・ガイドをご紹介します。">
 <meta property="og:image" content="https://ehonrium.pages.dev/ogp.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:type" content="image/png">
-<meta property="og:url" content="https://ehonrium.pages.dev/privacy.html">
+<meta property="og:url" content="https://ehonrium.pages.dev/trainer.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="エホンリウム">
 <meta property="og:locale" content="ja_JP">
@@ -204,7 +204,7 @@ h1, h2, h3 {
    Page Content
    ============================== */
 .page-content {
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto;
   padding: 140px 6vw 80px;
 }
@@ -225,79 +225,78 @@ h1, h2, h3 {
 }
 
 /* ==============================
-   Privacy Sections
+   Section Label
    ============================== */
-.privacy-section {
+.role-label {
+  text-align: center;
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  color: var(--brown-text);
   margin-bottom: 48px;
+  position: relative;
+}
+.role-label::after {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 1px;
+  background: var(--green-leaf);
+  margin: 12px auto 0;
 }
 
-.privacy-section h2 {
-  font-size: 1.05rem;
-  margin-bottom: 12px;
-  padding-bottom: 8px;
-  border-bottom: 1px solid rgba(168, 152, 136, 0.25);
-  line-height: 1.8;
+/* ==============================
+   Trainer Card
+   ============================== */
+.trainer-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 48px;
+  margin-bottom: 80px;
 }
 
-.privacy-section p {
-  font-size: 0.88rem;
-  color: var(--brown-light);
-  line-height: 2;
-  margin-bottom: 12px;
+.trainer-card {
+  width: 280px;
+  text-align: center;
 }
 
-.privacy-section ol {
-  padding-left: 1.5em;
-  margin-bottom: 12px;
+.trainer-photo {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center top;
+  margin: 0 auto 24px;
+  border: 3px solid rgba(123, 175, 82, 0.15);
+  box-shadow: 0 4px 20px rgba(81, 70, 63, 0.08);
 }
 
-.privacy-section ol li {
-  font-size: 0.88rem;
-  color: var(--brown-light);
-  line-height: 2;
-  margin-bottom: 6px;
+.trainer-name {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  margin-bottom: 8px;
+  color: var(--brown-text);
 }
 
-.privacy-section ol li::marker {
-  color: var(--green-leaf);
+.trainer-role {
+  font-size: 0.75rem;
+  color: var(--green-moss);
+  letter-spacing: 0.08em;
+  font-weight: 400;
 }
 
-.privacy-section ul {
-  padding-left: 1.5em;
-  list-style: disc;
-  margin-bottom: 12px;
-}
-
-.privacy-section ul li {
-  font-size: 0.88rem;
-  color: var(--brown-light);
-  line-height: 2;
-  margin-bottom: 4px;
-}
-
-.privacy-section ul li::marker {
-  color: var(--green-leaf);
-}
-
-.privacy-date {
-  text-align: right;
-  font-size: 0.82rem;
-  color: var(--brown-pale);
-  margin-top: 60px;
-}
-
-.privacy-contact {
-  margin-top: 20px;
-  padding: 24px;
-  background: var(--bg-warm);
-  border-radius: 12px;
-}
-
-.privacy-contact p {
-  font-size: 0.85rem;
-  color: var(--brown-light);
-  margin-bottom: 4px;
-  line-height: 1.8;
+/* ==============================
+   Divider
+   ============================== */
+.section-divider {
+  width: 60px;
+  height: 1px;
+  background: rgba(168, 152, 136, 0.3);
+  margin: 0 auto 80px;
 }
 
 /* ==============================
@@ -368,8 +367,17 @@ h1, h2, h3 {
     font-size: 1.2rem;
   }
 
-  .privacy-section h2 {
-    font-size: 0.95rem;
+  .trainer-list {
+    gap: 40px;
+  }
+
+  .trainer-card {
+    width: 240px;
+  }
+
+  .trainer-photo {
+    width: 180px;
+    height: 180px;
   }
 
   .footer-nav, .footer-legal {
@@ -408,88 +416,35 @@ h1, h2, h3 {
 
 <!-- ========== Content ========== -->
 <main class="page-content">
-  <h1 class="page-title serif">プライバシーポリシー</h1>
-  <p class="page-subtitle">Privacy Policy</p>
+  <h1 class="page-title serif">トレーナー紹介</h1>
+  <p class="page-subtitle">Trainers &amp; Guide</p>
 
-  <div class="privacy-section">
-    <p>EHONGOTO（エホンゴト）（以下「当事業者」といいます）は、エホンリウム（以下「本サービス」といいます）の提供にあたり、お客様の個人情報を適切に取り扱うことが社会的責務であると考え、以下のとおりプライバシーポリシーを定めます。</p>
-  </div>
-
-  <div class="privacy-section">
-    <h2>1. 個人情報の定義</h2>
-    <p>本ポリシーにおいて「個人情報」とは、生存する個人に関する情報であって、氏名、メールアドレス、電話番号、住所その他の記述等により特定の個人を識別できるものをいいます。</p>
-  </div>
-
-  <div class="privacy-section">
-    <h2>2. 個人情報の収集方法</h2>
-    <p>当事業者は、以下の方法でお客様の個人情報を取得することがあります。</p>
-    <ol>
-      <li>体験会・養成講座のお申込みフォーム</li>
-      <li>メール・電話でのお問い合わせ</li>
-      <li>サービスの利用登録</li>
-      <li>その他、当事業者が提供するフォーム等</li>
-    </ol>
-  </div>
-
-  <div class="privacy-section">
-    <h2>3. 個人情報の利用目的</h2>
-    <p>当事業者は、収集した個人情報を以下の目的で利用いたします。</p>
-    <ol>
-      <li>本サービス（体験会・養成講座・システム利用）の提供・運営</li>
-      <li>お申込み内容の確認およびご連絡</li>
-      <li>お問い合わせへの対応</li>
-      <li>サービスの改善・新サービスの開発</li>
-      <li>サービスに関するお知らせ・ご案内の送付</li>
-      <li>利用規約への違反行為への対応</li>
-      <li>上記に付随する業務</li>
-    </ol>
-  </div>
-
-  <div class="privacy-section">
-    <h2>4. 個人情報の第三者提供</h2>
-    <p>当事業者は、以下の場合を除き、お客様の同意なく個人情報を第三者に提供することはいたしません。</p>
-    <ol>
-      <li>法令に基づく場合</li>
-      <li>人の生命・身体または財産の保護のために必要で、本人の同意を得ることが困難な場合</li>
-      <li>公衆衛生の向上または児童の健全な育成の推進のために特に必要で、本人の同意を得ることが困難な場合</li>
-      <li>国の機関もしくは地方公共団体またはその委託を受けた者が法令に定める事務を遂行することに対して協力する必要がある場合</li>
-    </ol>
-  </div>
-
-  <div class="privacy-section">
-    <h2>5. 個人情報の管理</h2>
-    <p>当事業者は、お客様の個人情報を正確かつ最新の状態に保ち、個人情報への不正アクセス・紛失・破損・改ざん・漏洩などを防止するため、合理的な安全管理措置を講じます。</p>
-  </div>
-
-  <div class="privacy-section">
-    <h2>6. 個人情報の開示・訂正・削除</h2>
-    <p>お客様は、当事業者が保有する自己の個人情報について、開示・訂正・削除を請求することができます。ご本人確認のうえ、速やかに対応いたします。下記のお問い合わせ先までご連絡ください。</p>
-  </div>
-
-  <div class="privacy-section">
-    <h2>7. 外部サービスの利用</h2>
-    <p>本サービスでは、以下の外部サービスを利用しています。これらのサービスにおける個人情報の取り扱いについては、各サービスのプライバシーポリシーをご確認ください。</p>
-    <ul>
-      <li>Google フォーム（お申込み受付）</li>
-      <li>Zoom（オンライン体験会・講座の実施）</li>
-    </ul>
-  </div>
-
-  <div class="privacy-section">
-    <h2>8. プライバシーポリシーの変更</h2>
-    <p>当事業者は、必要に応じて本ポリシーの内容を変更することがあります。変更後のプライバシーポリシーは、本ウェブサイトに掲載した時点で効力を生じるものとします。</p>
-  </div>
-
-  <div class="privacy-section">
-    <h2>9. お問い合わせ先</h2>
-    <div class="privacy-contact">
-      <p><strong>EHONGOTO（エホンゴト）</strong></p>
-      <p>運営責任者：秋月偲希</p>
-      <p>メール：info@ehongoto.jp</p>
+  <!-- エホンリウムトレーナー -->
+  <h2 class="role-label">エホンリウムトレーナー</h2>
+  <div class="trainer-list">
+    <div class="trainer-card">
+      <img src="trainer-akizuki.webp" alt="秋月 偲希" class="trainer-photo" loading="lazy">
+      <p class="trainer-name">秋月 偲希</p>
+      <p class="trainer-role">Akizuki Shiki</p>
+    </div>
+    <div class="trainer-card">
+      <img src="trainer-uchida.webp" alt="内田 琢也" class="trainer-photo" loading="lazy">
+      <p class="trainer-name">内田 琢也</p>
+      <p class="trainer-role">Uchida Takuya</p>
     </div>
   </div>
 
-  <p class="privacy-date">制定日：2026年8月31日</p>
+  <div class="section-divider"></div>
+
+  <!-- エホンリウムガイド -->
+  <h2 class="role-label">エホンリウムガイド</h2>
+  <div class="trainer-list">
+    <div class="trainer-card">
+      <img src="trainer-hirano.webp" alt="平野 詩耀華" class="trainer-photo" loading="lazy">
+      <p class="trainer-name">平野 詩耀華</p>
+      <p class="trainer-role">Hirano Shizuka</p>
+    </div>
+  </div>
 </main>
 
 <!-- ========== Footer ========== -->
@@ -512,14 +467,15 @@ h1, h2, h3 {
 <!-- ========== JavaScript ========== -->
 <script>
 /* Hamburger menu */
-document.getElementById('hamburgerBtn').addEventListener('click', () => {
-  document.getElementById('mobileNav').classList.add('open');
-});
-document.getElementById('closeNav').addEventListener('click', () => {
-  document.getElementById('mobileNav').classList.remove('open');
-});
+const hamburgerBtn = document.getElementById('hamburgerBtn');
+const closeNav = document.getElementById('closeNav');
+const mobileNav = document.getElementById('mobileNav');
+
+hamburgerBtn.addEventListener('click', () => mobileNav.classList.add('open'));
+closeNav.addEventListener('click', () => mobileNav.classList.remove('open'));
+
 function closeMobileNav() {
-  document.getElementById('mobileNav').classList.remove('open');
+  mobileNav.classList.remove('open');
 }
 </script>
 </body>
