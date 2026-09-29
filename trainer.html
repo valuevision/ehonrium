@@ -289,6 +289,21 @@ h1, h2, h3 {
   font-weight: 400;
 }
 
+.trainer-link {
+  display: inline-block;
+  margin-top: 12px;
+  font-size: 0.75rem;
+  color: var(--brown-light);
+  letter-spacing: 0.05em;
+  border-bottom: 1px solid rgba(168, 152, 136, 0.3);
+  padding-bottom: 2px;
+  transition: color 0.3s ease, border-color 0.3s ease;
+}
+.trainer-link:hover {
+  color: var(--green-leaf);
+  border-color: var(--green-leaf);
+}
+
 /* ==============================
    Divider
    ============================== */
@@ -426,11 +441,13 @@ h1, h2, h3 {
       <img src="trainer-akizuki.webp" alt="秋月 偲希" class="trainer-photo" loading="lazy">
       <p class="trainer-name">秋月 偲希</p>
       <p class="trainer-role">Akizuki Shiki</p>
+      <a href="https://www.ehongoto.jp/" target="_blank" rel="noopener" class="trainer-link">EHONGOTO ↗</a>
     </div>
     <div class="trainer-card">
       <img src="trainer-uchida.webp" alt="内田 琢也" class="trainer-photo" loading="lazy">
       <p class="trainer-name">内田 琢也</p>
       <p class="trainer-role">Uchida Takuya</p>
+      <a href="https://hp.ikikata-value.com/" target="_blank" rel="noopener" class="trainer-link">バリュービジョン ↗</a>
     </div>
   </div>
 
@@ -443,6 +460,7 @@ h1, h2, h3 {
       <img src="trainer-hirano.webp" alt="平野 詩耀華" class="trainer-photo" loading="lazy">
       <p class="trainer-name">平野 詩耀華</p>
       <p class="trainer-role">Hirano Shizuka</p>
+      <a href="https://sophia-venus.com/index.html" target="_blank" rel="noopener" class="trainer-link">美容整骨サロン Sophia ↗</a>
     </div>
   </div>
 </main>
