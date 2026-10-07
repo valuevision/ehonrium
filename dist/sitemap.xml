@@ -5,27 +5,27 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://ehonrium.com/workshop.html</loc>
+    <loc>https://ehonrium.com/workshop</loc>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://ehonrium.com/guide.html</loc>
+    <loc>https://ehonrium.com/guide</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ehonrium.com/trainer.html</loc>
+    <loc>https://ehonrium.com/trainer</loc>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://ehonrium.com/contact.html</loc>
+    <loc>https://ehonrium.com/contact</loc>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ehonrium.com/tokushoho.html</loc>
+    <loc>https://ehonrium.com/tokushoho</loc>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://ehonrium.com/privacy.html</loc>
+    <loc>https://ehonrium.com/privacy</loc>
     <priority>0.3</priority>
   </url>
 </urlset>
